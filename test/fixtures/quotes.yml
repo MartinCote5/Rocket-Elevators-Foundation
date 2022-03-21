@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  number-of-floors: 1
+  number-of-basements: 1
+  number-of-apartments: 1
+  number-of-parking-spots: 1
+  number-of-elevators: 1
+  number-of-companies: 1
+  maximum-occupancy: 1
+  number-of-corporations: 1
+  business-hours: 1
+  standard: MyString
+  premium: MyString
+  excelium: MyString
+  elevator-amount: 1
+  elevator-unit-price: 1
+  elevator-total-price: 1
+  installation-fees: 1
+  final-price: 1
+
+two:
+  type: 
+  number-of-floors: 1
+  number-of-basements: 1
+  number-of-apartments: 1
+  number-of-parking-spots: 1
+  number-of-elevators: 1
+  number-of-companies: 1
+  maximum-occupancy: 1
+  number-of-corporations: 1
+  business-hours: 1
+  standard: MyString
+  premium: MyString
+  excelium: MyString
+  elevator-amount: 1
+  elevator-unit-price: 1
+  elevator-total-price: 1
+  installation-fees: 1
+  final-price: 1

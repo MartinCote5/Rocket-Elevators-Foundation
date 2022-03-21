@@ -1,0 +1,138 @@
+<% quote = @quote %>
+<% content_for :head do %>
+    <script src="<%= asset_path('quote/quote') %>"></script>
+    <%= stylesheet_link_tag "quote" %>
+<% end %>
+
+<section id="quote">
+    <div class="container">
+        <!--<form action="/quotes" method="post">-->
+        <%= form_with(model: quote) do |form| %>
+            <div class="row tabs">
+                <legend>Complete the form</legend>
+                <div class="col-sm-3 col-md-3">
+                    <ul id="building-type">
+                        <li>
+                            <a href="#" class="ctab" id='residential'>Residential</a>
+                        </li>
+                        <li>
+                            <a href="#" id='commercial'>Commercial</a>
+                        </li>
+                        <li>
+                            <a href="#" id='corporate'>Corporate</a>
+                        </li>
+                        <li>
+                            <a href="#" id='hybrid'>Hybrid</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-9 col-md-9">
+                <!-- form fields -->
+                    <div class="container" id="form_field">
+                        <div class="row">
+                            
+                            <div id="number-of-floors" class="col-sm-4 col-md-4">
+                                <%= form.label :number_of_floors, style: "display: block" %>
+                                <%= form.number_field :number_of_floors, :class => "form-control" %>
+                            </div>
+                            <div id="number-of-basements" class="col-sm-4 col-md-4">
+                                <%= form.label :number_of_basements, style: "display: block" %>
+                                <%= form.number_field :number_of_basements, :class => "form-control" %>
+                            </div>
+                            <div id="number-of-apartments" class="col-sm-4 col-md-4 ">
+                                <%= form.label :number_of_apartments, style: "display: block" %>
+                                <%= form.number_field :number_of_apartments, :class => "form-control" %>
+                            </div>
+                            <div id="number-of-parking-spots" class="col-sm-4 col-md-4">
+                                <%= form.label :number_of_parking_spots, style: "display: block" %>
+                                <%= form.number_field :number_of_parking_spots, :class => "form-control" %>
+                            </div>
+                            <div id="number-of-elevators" class="col-sm-4 col-md-4">
+                                <%= form.label :number_of_elevators, style: "display: block" %>
+                                <%= form.number_field :number_of_elevators, :class => "form-control" %>
+                            </div>
+                            <div id="number-of-companies" class="col-sm-4 col-md-4">
+                                <%= form.label :number_of_companies, style: "display: block" %>
+                                <%= form.number_field :number_of_companies, :class => "form-control" %>
+                            </div>
+                            <div id="maximum-occupancy" class="col-sm-4 col-md-4">
+                                <%= form.label :maximum_occupancy, style: "display: block" %>
+                                <%= form.number_field :maximum_occupancy, :class => "form-control" %>
+                            </div>
+                            <div id="number-of-corporations" class="col-sm-4 col-md-4">
+                                <%= form.label :number_of_corporations, style: "display: block" %>
+                                <%= form.number_field :number_of_corporations, :class => "form-control" %>
+                            </div>
+                            <div id="business-hours" class="col-sm-4 col-md-4">
+                                <%= form.label :business_hours, style: "display: block" %>
+                                <%= form.number_field :business_hours, :class => "form-control" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <fieldset id="product_range">
+                    <legend>Choose the product range</legend>
+                    <div>
+                        <%= form.radio_button :standard, 'standard', :class => "range_radio", name: "gamme_produit", id: "standard"  %>
+                        <%= form.label :standard, style: "display: block", :class => "range_label", for: "standard" %>
+                    </div>
+
+                    <div>
+                        <%= form.radio_button :premium, 'premium', :class => "range_radio", name: "gamme_produit", id: "premium" %>
+                        <%= form.label :premium, style: "display: block", :class => "range_label", for: "premium" %>
+                    </div>
+
+                    <div>
+                        <%= form.radio_button :excelium, 'excelium', :class => "range_radio", name: "gamme_produit", id: "excelium" %>
+                        <%= form.label :excelium, style: "display: block", :class => "range_label", for: "excelium" %>
+                    </div>
+                </fieldset>
+            </div>
+
+           
+
+            <%= form.hidden_field :buildingType, :value => 1, id: "buildingType" %>
+            <%= form.hidden_field :range, :value => 1, id: "range" %>
+            <div id="results" class="container">
+                <div class="row">
+                    <div id="elevator-amount" class="col-sm-3 col-md-3">
+                        Amount of elevator:
+                        <%= form.number_field :elevator_amount, :class => "form-control", readonly: true %>
+                    </div>
+                    <div id="elevator-unit-price" class="col-sm-3 col-md-3">
+                        Individual elevator price:
+                        <input type="text" class="form-control" value="$ 0.00" dir="rtl" readonly>
+                    </div>
+                    <div id="elevator-total-price" class="col-sm-3 col-md-3">
+                        Total elevator price:
+                        <input type="text" class="form-control" value="$ 0.00" dir="rtl" readonly>
+                    </div>
+                    <div id="installation-fees" class="col-sm-3 col-md-3">
+                        Installation fees:
+                        <input type="text" class="form-control" value="$ 0.00" dir="rtl" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="final-price" class="col-sm-12 col-md-12">
+                        Final price:
+                        <input type="text" class="form-control" value="$ 0.00" dir="rtl" readonly>
+                    </div>
+                
+            </div>
+            <div id="company_name" class="col-md-4">
+                <%= form.label :company_name, style: "display: block" %>
+                <%= form.text_field :company_name, :class => "form-control" %>
+            </div>
+            <div id="email" class="col-sm-4 col-md-4">
+                <%= form.label :email, style: "display: block" %>
+                <%= form.email_field :email, :class => "form-control" %>
+            </div>
+            <input type="submit" value="Submit" class= "submit">
+        <%end%>
+        <!--</form>-->
+    </div>
+</section>

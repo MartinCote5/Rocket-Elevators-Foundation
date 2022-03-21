@@ -1,0 +1,67 @@
+<%= form_with(model: lead) do |form| %>
+  <% if lead.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+
+      <ul>
+        <% lead.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :full_name_of_the_contact, style: "display: block" %>
+    <%= form.text_field :full_name_of_the_contact %>
+  </div>
+
+  <div>
+    <%= form.label :company_name, style: "display: block" %>
+    <%= form.text_field :company_name %>
+  </div>
+
+  <div>
+    <%= form.label :e_mail, style: "display: block" %>
+    <%= form.text_field :e_mail %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :project_name, style: "display: block" %>
+    <%= form.text_field :project_name %>
+  </div>
+
+  <div>
+    <%= form.label :project_description, style: "display: block" %>
+    <%= form.text_area :project_description %>
+  </div>
+
+  <div>
+    <%= form.label :department_in_charge_of_the_elevators, style: "display: block" %>
+    <%= form.select (:department_in_charge_of_the_elevators, Lead: :department_list) %>
+  </div>
+
+  <div>
+    <%= form.label :message, style: "display: block" %>
+    <%= form.text_area :message %>
+  </div>
+
+  <div>
+    <%= form.label :attached_file_stored_as_a_binary_file, style: "display: block" %>
+    <%= form.text_area :attached_file_stored_as_a_binary_file %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_the_contact_request, style: "display: block" %>
+    <%= form.date_field :date_of_the_contact_request %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

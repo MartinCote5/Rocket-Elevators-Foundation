@@ -1,0 +1,2 @@
+json.extract! quote, :id, :type, :number-of-floors, :number-of-basements, :number-of-apartments, :number-of-parking-spots, :number-of-elevators, :number-of-companies, :maximum-occupancy, :number-of-corporations, :business-hours, :standard, :premium, :excelium, :elevator-amount, :elevator-unit-price, :elevator-total-price, :installation-fees, :final-price, :created_at, :updated_at
+json.url quote_url(quote, format: :json)

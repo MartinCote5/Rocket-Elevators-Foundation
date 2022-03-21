@@ -1,0 +1,89 @@
+<%= form_with(model: quote) do |form| %>
+  <% if quote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+        <% quote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_floors, style: "display: block" %>
+    <%= form.number_field :number_of_floors %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_basements, style: "display: block" %>
+    <%= form.number_field :number_of_basements %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_apartments, style: "display: block" %>
+    <%= form.number_field :number_of_apartments %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_parking_spots, style: "display: block" %>
+    <%= form.number_field :number_of_parking_spots %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_elevators, style: "display: block" %>
+    <%= form.number_field :number_of_elevators %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_companies, style: "display: block" %>
+    <%= form.number_field :number_of_companies %>
+  </div>
+
+  <div>
+    <%= form.label :maximum_occupancy, style: "display: block" %>
+    <%= form.number_field :maximum_occupancy %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_corporations, style: "display: block" %>
+    <%= form.number_field :number_of_corporations %>
+  </div>
+
+  <div>
+    <%= form.label :business_hours, style: "display: block" %>
+    <%= form.number_field :business_hours %>
+  </div>
+
+  <div>
+    <%= form.label :standard, style: "display: block" %>
+    <%= form.text_field :standard %>
+  </div>
+
+  <div>
+    <%= form.label :premium, style: "display: block" %>
+    <%= form.text_field :premium %>
+  </div>
+
+  <div>
+    <%= form.label :excelium, style: "display: block" %>
+    <%= form.text_field :excelium %>
+  </div>
+
+   <div>
+    <%= form.label :company_name, style: "display: block" %>
+    <%= form.text_field :company_name %>
+  </div>
+
+   <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+<% end %>

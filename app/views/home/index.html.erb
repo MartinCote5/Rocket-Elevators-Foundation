@@ -1,0 +1,915 @@
+<% content_for :head do %>
+    <script src="<%= asset_path('rocketElevator/validation') %>"></script>
+<% end %>
+
+
+
+ <script>
+    document.getElementById('close').addEventListener('click', e => {
+        e.target.parentElement.style.display = 'none';
+    });
+ </script>
+
+
+<!-- REVOLUTION SLIDER -->
+<div id="home" class="slider fullwidthbanner-container roundedcorners">
+    <div id="all-banner" class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview4">
+        <ul class="hide">
+            
+            <!-- SLIDE 1  -->
+            <li data-transition="parallaxtotop" id="slide-1" data-slotamount="1" data-masterspeed="300"  data-saveperformance="off" data-title="Rocket Elevator" data-delay="7000">
+                <!-- MAIN IMAGE -->
+                <!--<img src="rocket_elevator_asset/M.jpg" alt="cover image"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"> -->
+                <%= image_tag 'M.jpg' %>
+
+                <div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
+
+                <div class="tp-caption font-roboto skewfromleft tp-resizeme slider-header"
+                    data-x="50"
+                    data-y="225" 
+                    data-speed="500"
+                    data-start="300"
+                    data-easing="Cubic.easeOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 2; color:#A94545; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+                        Rocket Elevator
+                </div>
+
+                <div class="tp-caption skewfromrightshort tp-resizeme slider-slogan"
+                    data-x="50"
+                    data-y="300" 
+                    data-speed="500"
+                    data-start="500"
+                    data-easing="easeInCirc"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
+                        <b>Evaluate safety, speed and style</b>
+                </div>
+
+                <div class="tp-caption sfb tp-resizeme button-1"
+                    data-x="50"
+                    data-y="350" 
+                    data-speed="500"
+                    data-start="500"
+                    data-easing="Power3.easeIn"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 4; max-width: auto;">
+                        <a class="btn btn-primary btn-lg scrollTo" href="#services">OUR SERVICES &nbsp; <i class="bi bi-chevron-right"></i></a>
+                </div>
+
+                <div class="tp-caption sfb tp-resizeme button-2"
+                    data-x="250"
+                    data-y="350" 
+                    data-speed="500"
+                    data-start="1000"
+                    data-easing="Power3.easeInOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
+                        <a class="btn btn-secondary btn-lg" href="quote.html">GET A QUOTE &nbsp; <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </li>
+
+            <!-- SLIDE 2  -->
+            <li data-transition="parallaxtobottom" id="slide-2" data-slotamount="1" data-masterspeed="600"  data-saveperformance="off"  data-title="Residential" data-delay="7000">
+                <!-- MAIN IMAGE -->
+                <%= image_tag 'slider2' %>
+
+                <div class="tp-caption white_big skewfromleft tp-resizeme slider-header slider-2"
+                    data-x="401"
+                    data-y="250" 
+                    data-speed="400"
+                    data-start="1500"
+                    data-easing="Power3.easeInOut"
+                    data-splitin="words"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="600"
+                    style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+                        Who needs stairs?
+                </div>
+
+                <div class="tp-caption content_text_center skewfromleft tp-resizeme slider-slogan"
+                    data-x="595"
+                    data-y="325" 
+                    data-speed="500"
+                    data-start="2000"
+                    data-easing="Power3.easeInOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="600"
+
+                    style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
+                        <b>Let us help you find your perfect home.</b>
+                </div>
+
+                <div class="tp-caption skewfromleft tp-resizeme button-3 un-button-2-lg"
+                    data-x="800"
+                    data-y="380" 
+                    data-speed="300"
+                    data-start="2500"
+                    data-easing="Power3.easeInOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="300"
+
+                    style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
+                        <a class="btn btn-primary btn-lg" href="residential.html">Residential&nbsp; <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </li>
+
+            <!-- SLIDE 3 -->
+            <li data-transition="parallaxtotop" id="slide-3" data-slotamount="1" data-masterspeed="300"  data-saveperformance="off" data-title="Corporate" data-delay="7000">
+                <!-- MAIN IMAGE -->
+                <%= image_tag 'bossman' %>
+
+                <div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
+
+                <div class="tp-caption font-roboto skewfromleft tp-resizeme slider-header"
+                    data-x="50"
+                    data-y="250" 
+                    data-speed="500"
+                    data-start="1500"
+                    data-easing="Cubic.easeOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 2; color:#fff; font-size:55px; line-height:55px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+                        The business of tomorrow <br />starts today
+                </div>
+
+                <div class="tp-caption skewfromrightshort tp-resizeme slider-slogan"
+                    data-x="50"
+                    data-y="375" 
+                    data-speed="500"
+                    data-start="1000"
+                    data-easing="easeInCirc"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
+                        See how our expertise can help you build<br />
+                        the bests projects.
+                </div>
+
+                <div class="tp-caption sfb tp-resizeme button-4"
+                    data-x="50"
+                    data-y="460" 
+                    data-speed="500"
+                    data-start="1500"
+                    data-easing="Power3.easeIn"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="500"
+                    style="z-index: 4; max-width: auto;">
+                        <a class="btn btn-primary btn-lg" href="commercial.html">CORPORATE SERVICES &nbsp; <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+</div>
+<!-- /REVOLUTION SLIDER -->
+
+
+<a href="#contact" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40 scrollTo">
+    <span class="font-lato fs-30">
+            Did Rocket Elevator convinced you? 
+        <strong>Contact us &raquo;</strong>
+        </span>
+</a>
+
+<hr class="m-0" /><!-- 1px line separator -->
+
+<section id="services">
+    <div class="container">
+        <div class="row prize-link">
+            <div class="col-sm-4">
+                <%= image_tag 'services/prize' %>
+
+                <h3 class="mt-10">Awards & work</h3>
+                <p>Rocket evelator has been on top of the market ever since it's creation. It has won many prizes and created so many projects over the years!</p>
+                <a href="#portfolio" class="btn btn-default scrollTo">PORTFOLIO</a>
+            </div>
+
+            <div class="col-sm-4">
+                <%= image_tag 'services/residential' %>
+
+                <h3 class="mt-10">Residential</h3>
+                <p>Our passion and success has lead us to develop the best solutions to help families and friends to stay together. </p>
+                <a href="/residential" class="btn btn-default">RESIDENTIAL</a>
+            </div>
+
+            <div class="col-sm-4">
+                <%= image_tag 'services/corporate' %>
+                <h3 class="mt-10">Corporate</h3>
+                <p>Our knowledge and experience is the key to our work. We are proud of our achievements and are still looking for the next big thing.</p>
+                <a href="/commercial" class="btn btn-default">CORPORATE</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Parallax -->
+<section class="parallax parallax-1" style="background-image: url('<%= asset_path 'parallax/parallax.jpg' %>')">
+    <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+
+    <div class="container">
+
+        <div class="text-center">
+            <h2 class="fs-40 fw-300">In business since 1976</h2>
+            <a class="btn btn-default btn-lg" href="quote">GET A QUOTE <i class="bi bi-chevron-right"></i></a> 
+            <span class="perfect-or">&nbsp; OR &nbsp;</span>
+            <a class="btn btn-primary btn-lg scrollTo" href="#contact">CONTACT US <i class="bi bi-chevron-right"></i></a>
+        </div>
+
+    </div>
+</section>
+<!-- /Parallax -->
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+    <div class="container">
+
+        <div class="heading-title heading-dotted text-center">
+            <h2>Portfolio</h2>
+        </div>
+
+        <div class="text-center">
+            <ul class="nav nav-pills mix-filter mb-60">
+                <li data-filter="all" class="filter active"><a href="#">All</a></li>
+                <li data-filter="residential" class="filter"><a href="#">Residential</a></li>
+                <li data-filter="corporate" class="filter"><a href="#">Corporate</a></li>
+                <li data-filter="award" class="filter"><a href="#">Award</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div  class="portfolio-nogutter">
+
+            <div class="row mix-grid">
+
+                <div class="col-md-3 col-sm-3 mix residential work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <!--<img class="img-fluid img-project" src="rocket_elevator_asset/projects/kenedy.png" width="600" height="399" alt="">-->
+                            <%= image_tag 'portfolio/kenedy', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc img-project">
+                            <h3>Kenedy's house</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Residential</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix residential work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/trump', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Trump's house</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Residential</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix award work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/onsolve', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>ONSOLVE best company culture</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Award</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/walmart', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Walmart</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/empire_state_building', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Empire State Building</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/apple', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Apple</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/codeboxx', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Codeboxx</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/tesla', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Tesla</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/amazon', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Amazon's headquarter</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+                <div class="col-md-3 col-sm-3 mix award work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/mea', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>MEA Marketing Excellence</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Award</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+                <div class="col-md-3 col-sm-3 mix corporate work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/intel', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Intel's headquarter</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+                <div class="col-md-3 col-sm-3 mix award work-item"><!-- item -->
+
+                    <div class="item-box">
+                        <figure>
+                            <%= image_tag 'portfolio/green', :class => "img-fluid img-project"%>
+                        </figure>
+
+                        <div class="item-box-desc">
+                            <h3>Sustainable Innovation Award</h3>
+                            <ul class="list-inline categories m-0">
+                                <li><a href="#">Award</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div><!-- /item -->
+
+
+            </div>
+
+
+    </div>
+</section>
+<!-- /PORTFOLIO -->
+
+
+
+
+<!-- Testimonials -->
+<section id="team" class="section-xs dark">
+    <div class="container">
+
+        <div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 10000, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
+            <div id="CEO" class="testimonial">
+                <figure>
+                    <%= image_tag 'people/CEO', :class => "rounded"%>
+                </figure>
+                <div class="testimonial-content p-0">
+                    <p class="lead">You always have to look out for success, even in failure because for each failure <br> the success becomes even better</p>
+                    <cite>
+                        Marie-Ève
+                        <span>CEO</span>
+                    </cite>
+                </div>
+            </div>
+            <div id="employee" class="testimonial">
+                <figure>
+                    <%= image_tag 'people/employee-of-the-month', :class => "rounded"%>
+                </figure>
+                <div class="testimonial-content p-0">
+                    <p class="lead">Not only strong in his mind, if you don't see him behind his keyboard, <br> he is most definetly at the gym.</p>
+                    <cite>
+                        Jean-Sebastien
+                        <span>Employee</span>
+                    </cite>
+                </div>
+            </div>
+            <div id="employee" class="testimonial">
+                <figure>
+                    <%= image_tag 'people/employee-of-the-month (1)', :class => "rounded"%>
+                </figure>
+                <div class="testimonial-content p-0">
+                    <p class="lead">She may not understand what you are saying, but she will surely understand your code.</p>
+                    <cite>
+                        Myriam
+                        <span>Employee</span>
+                    </cite>
+                </div>
+            </div>
+            <div id="employee" class="testimonial">
+                <figure>
+                    <%= image_tag 'people/employee-of-the-month (2)', :class => "rounded"%>
+                </figure>
+                <div class="testimonial-content p-0">
+                    <p class="lead">Code is like a chocolate box, You never know wich bug you'r gonna get. </p>
+                    <cite>
+                        Gabriel
+                        <span>Employee</span>
+                    </cite>
+                </div>
+            </div>
+            <div id="employee" class="testimonial">
+                <figure>
+                    <%= image_tag 'people/employee-of-the-month4.jpg', :class => "rounded"%>
+                </figure>
+                <div class="testimonial-content p-0">
+                    <p class="lead">Guitare and long hair would describe the perfect Hippy. Well, he is a Boxe Thai fighter, <br> you will probably receive a punch instead of a flower.</p>
+                    <cite>
+                        Martin
+                        <span>Employee</span>
+                    </cite>
+                </div>
+            </div>
+            <div id="employee" class="testimonial">
+                <figure>
+                    <%= image_tag 'people/employee-of-the-month5', :class => "rounded"%>
+                </figure>
+                <div class="testimonial-content p-0">
+                    <p class="lead">If you ever got a problem, don't call 911...Call him !</p>
+                    <cite>
+                        Samuel
+                        <span>Employee</span>
+                    </cite>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Testimonials -->
+
+
+
+
+
+<!-- News -->
+<section id="news">
+    <div class="container">
+
+        <div class="heading-title heading-dotted text-center">
+            <h2>Recent News</h2>
+        </div>
+
+        <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 4000, "navigation": true, "pagination": false}'>
+            <div class="img-hover">
+                <a target="_blank" href="https://www.propmodo.com/how-9-11-changed-elevator-evacuation-technology-and-high-rise-building-safety/">
+                    <%= image_tag 'news/evacuation.gif', :class => "img-fluid"%>
+                </a>
+
+                <h4 class="text-left mt-20"><a target="_blank" href="https://www.propmodo.com/how-9-11-changed-elevator-evacuation-technology-and-high-rise-building-safety/">How 9/11 Changed Elevator Evacuation Technology and High-Rise Safety</a></h4>
+                <p class="text-left">It’s an understatement to say the harrowing events of the 9/11 attacks changed the world in ways still felt today. Most Americans...</p>
+                <ul class="text-left fs-12 list-inline list-separator">
+                    <li>
+                        <i class="fa fa-calendar"></i> 
+                        26th Jan 2022
+                    </li>
+                </ul>
+            </div>
+            <div class="img-hover">
+                <a target="_blank" href="https://www.wired.com/story/what-happens-if-a-space-elevator-breaks/">
+                    <%= image_tag 'news/break.webp', :class => "img-fluid"%>
+                </a>
+
+                <h4 class="text-left mt-20"><a target="_blank" href="https://www.wired.com/story/what-happens-if-a-space-elevator-breaks/">What Happens If a Space Elevator Breaks</a></h4>
+                <p class="text-left">These structures are a sci-fi solution to the problem of getting objects into orbit without a rocket—but you don’t want to be under one if the cable snaps. </p>
+                <ul class="text-left fs-12 list-inline list-separator">
+                    <li>
+                        <i class="fa fa-calendar"></i> 
+                        21th Jan 2022
+                    </li>
+                </ul>
+            </div>
+            <div class="img-hover">
+                <a target="_blank" href="https://toronto.citynews.ca/2021/12/27/ttc-elevators-vandalized-police-charges/">
+                    <%= image_tag 'news/ttc', :class => "img-fluid"%>
+                </a>
+
+                <h4 class="text-left mt-20"><a target="_blank" href="https://toronto.citynews.ca/2021/12/27/ttc-elevators-vandalized-police-charges/">Toronto man charged with 12 counts of mischief after several TTC elevators vandalized</a></h4>
+                <p class="text-left">A 47-year-old Toronto man has been charged with multiple offences after several TTC elevators were vandalized earlier in December, officials say.</p>
+                <ul class="text-left fs-12 list-inline list-separator">
+                    <li>
+                        <i class="fa fa-calendar"></i> 
+                        27th Dec 2021
+                    </li>
+                </ul>
+            </div>
+            <div class="img-hover">
+                <a target="_blank" href="https://www.slashgear.com/is-a-space-elevator-possible-using-todays-technology-24708424/">
+                    <%= image_tag 'news/space', :class => "img-fluid"%>
+                </a>
+
+                <h4 class="text-left mt-20"><a target="_blank" href="https://www.slashgear.com/is-a-space-elevator-possible-using-todays-technology-24708424/">Is a space elevator possible using today’s technology?</a></h4>
+                <p class="text-left">One of the biggest challenges to space travel is escaping Earth’s orbit. Whether it be traveling to...</p>
+                <ul class="text-left fs-12 list-inline list-separator">
+                    <li>
+                        <i class="fa fa-calendar"></i> 
+                        24th Jan 2022
+                    </li>
+                </ul>
+            </div>
+            <div class="img-hover">
+                <a target="_blank" href="https://www.distractify.com/p/elevator-operator-refuses-911-call">
+                    <%= image_tag 'news/couple', :class => "img-fluid"%>
+                </a>
+                <h4 class="text-left mt-20"><a target="_blank" href="https://www.distractify.com/p/elevator-operator-refuses-911-call">Elevator Operator Refuses to Call 911 for Trapped Couple in Viral TikTok</a></h4>
+                <p class="text-left">Tons of sitcoms have a stuck-in-an-elevator episode that's kind of used as a "filler" where the main characters talk about all of the misadventures they've gotten themselves into.</p>
+                <ul class="text-left fs-12 list-inline list-separator">
+                    <li>
+                        <i class="fa fa-calendar"></i> 
+                        17th Jan 2022
+                    </li>
+                </ul>
+            </div>
+            <div class="img-hover">
+                <a target="_blank" href="https://www.richmond-news.com/local-news/touchless-keypad-installed-in-richmond-elevator-4964645">
+                    <%= image_tag 'news/touchless', :class => "img-fluid"%>
+                </a>
+                <h4 class="text-left mt-20"><a target="_blank" href="https://www.richmond-news.com/local-news/touchless-keypad-installed-in-richmond-elevator-4964645">Touchless keypad installed in Richmond elevator</a></h4>
+                <p class="text-left">Entering an elevator in one of City of Richmond’s buildings may feel like something out of a sci-fi movie.</p>
+                <ul class="text-left fs-12 list-inline list-separator">
+                    <li>
+                        <i class="fa fa-calendar"></i> 
+                        17th Jan 2022
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- /News -->
+
+
+<!-- Clients -->
+<section id="clients" class="alternate">
+    <div class="container">
+
+        <div class="heading-title heading-dotted text-center">
+            <h2>Our Clients</h2>
+        </div>
+
+        <ul class="row clients-dotted list-inline">
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.xfinity.com/overview">
+                    <%= image_tag 'clients/comcast' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.amazon.com/">
+                    <%= image_tag 'clients/Amazonlogo.PNG' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.apple.com/">
+                    <%= image_tag 'clients/apple'%>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.bankofamerica.com/">
+                    <%= image_tag 'clients/boa' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.walmart.com/">
+                    <%= image_tag 'clients/walmart' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="http://google.com">
+                    <%= image_tag 'clients/google' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.intel.com/">
+                    <%= image_tag 'clients/intel' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.jnj.com/">
+
+                    <%= image_tag 'clients/jandj' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.microsoft.com/">
+                    <%= image_tag 'clients/microsoft' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.samsung.com/">
+                    <%= image_tag 'clients/samsung' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.tesla.com/">
+                    <%= image_tag 'clients/tesla' %>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-3 col-6">
+                <a target="_blank" href="https://www.tsmc.com/">
+                    <%= image_tag 'clients/tsmc' %>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</section>
+<!-- /Clients -->
+
+
+
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+
+        <header class="text-center mb-60">
+            <h2>Contact Us</h2>
+            <p class="lead font-lato">Drop us a line or just say <strong><em>Hello!</em></strong></p>
+            <hr />
+        </header>
+
+
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-md-8 col-sm-8">
+
+                <!-- Alert Success -->
+                <div id="alert_success" class="alert alert-success mb-30">
+                    <strong>Thank You!</strong> Your message was successfully sent!
+                </div><!-- /Alert Success -->
+
+
+                <!-- Alert Failed -->
+                <div id="alert_failed" class="alert alert-danger mb-30">
+                    <strong>[SMTP] Error!</strong> Internal server error!
+                </div><!-- /Alert Failed -->
+
+
+                <!-- Alert Mandatory -->
+                <div id="alert_mandatory" class="alert alert-danger mb-30">
+                    <strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+                </div><!-- /Alert Mandatory -->
+
+
+                <%# <form method="post" enctype="multipart/form-data"> %>
+                <%= form_with(model: @lead) do |form| %>  
+                    <fieldset>
+                        <input type="hidden" name="action" value="contact_send" />
+
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <%= form.label :full_name_of_the_contact, "Full name *", style: "display: block" %>
+                                    <%= form.text_field :full_name_of_the_contact, :class => "form-control", :required => true %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= form.label :e_mail, "E-mail *", style: "display: block" %>
+                                    <%= form.email_field :e_mail, :class => "form-control", :required => true %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= form.label :phone, "Phone *", style: "display: block" %>
+                                    <%= form.text_field :phone, :class => "form-control", :required => true %>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <%= form.label :company_name, "Company name", style: "display: block" %>
+                                <%= form.text_field :company_name, :class => "form-control" %>
+                            </div>
+                            <div class="col-md-6">
+                                <%= form.label :project_name, "Project name", style: "display: block" %>
+                                <%= form.text_field :project_name, :class => "form-control"%>         
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <label style="display: block">Subject *</label>
+                                    <input class="form-control" required="required" type="text">
+                                </div> 
+                                <div class="col-md-4 departement">
+                                    <%= form.label :department_in_charge_of_the_elevators, "Department *", style: "display: block" %>
+                                    <%= form.select :department_in_charge_of_the_elevators, options_for_select(["Marketing", "Webdesign", "Architecture"]), {:prompt => '---Select---'}, {:required => true} %>
+                                </div>
+                        </div> 
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= form.label :project_description, "Project description *",style: "display: block" %>
+                                <%= form.text_area :project_description, :class => "form-control", :required => true %>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <%= form.label :message, "Message *",style: "display: block" %>
+                                    <%= form.text_area :message, :class => "form-control", :required => true %>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <%= form.label :attached_file_stored_as_a_binary_file, "File attachment",style: "display: block" %>
+                                    <%= form.file_field :attached_file_stored_as_a_binary_file, :class => "custom-file-upload", 'data-btn-text' => "Select a File" %>
+                                    <br>
+                                </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input id="submit" value="SEND MESSAGE" type="submit" class="btn btn-primary"> 
+                        </div>
+                    </div>
+                <%end%>    
+                <%# </form> %>
+
+            </div>
+            <!-- /FORM -->
+
+
+            <!-- INFO -->
+            <div class="col-md-4 col-sm-4">
+
+                <h2>Visit Us</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.4078760586053!2d-71.29402718406786!3d46.83566007914111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897e960cb92d3%3A0xd1f81b6230e26c75!2s1165%20Bd%20Lebourgneuf%2C%20Qu%C3%A9bec%2C%20QC%20G2K%202C9!5e0!3m2!1sfr!2sca!4v1643991446969!5m2!1sfr!2sca" width="360" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <hr />
+
+                <p>
+                    <span class="block"><strong><i class="bi bi-geo-alt"></i> Address:</strong> <a href="https://goo.gl/maps/rSXzQBXtYF7kBvCJ8">1165 Lebourgneuf, Quebec City, Canada</a></span>
+                    <span class="block"><strong><i class="bi bi-telephone"></i> Phone:</strong> <a href="tel:(418)555-1234">(418) 555-1234</a></span>
+                    <span class="block"><strong><i class="bi bi-envelope"></i> Email:</strong> <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span>
+                </p>
+
+            </div>
+            <!-- /INFO -->
+
+        </div>
+
+    </div>
+</section>
+<!-- /CONTACT -->
+
+<% content_for :footer do %>
+    
+<% end %>

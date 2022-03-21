@@ -1,0 +1,8 @@
+class ModifIdBuildingDetails < ActiveRecord::Migration[7.0]
+  def change
+      rename_column :buildings, :buildingId, :building_details_id
+      change_column :buildings, :building_details_id, :bigint
+      add_foreign_key :buildings, :building_details
+
+   end
+end

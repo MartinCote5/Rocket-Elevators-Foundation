@@ -1,0 +1,103 @@
+<!-- wrapper -->
+<div id="wrapper">
+
+    <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+        <!-- TOP NAV -->
+        <header id="topNav">
+            <div class="container">
+
+                <!-- Mobile Menu Button -->
+                <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Logo -->
+                <a class="logo float-left scrollTo" href="/#top">
+                    <%= image_tag 'R2.png' %>
+                </a>
+
+                <!-- 
+                    Top Nav 
+                -->
+                <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+                    <nav class="nav-main">
+                        <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                            <li class="active"><!-- HOME -->
+                                <a href="/">
+                                    HOME
+                                </a>
+                            </li>
+                            <li><!-- SERVICES -->
+                                <a href="/#services">
+                                    SERVICES
+                                </a>
+                            </li>
+                            <li><!-- WORK -->
+                                <a href="/#portfolio">
+                                    PORTFOLIO
+                                </a>
+                            </li>
+                            <li><!-- NEWS -->
+                                <a href="/#news">
+                                    NEWS
+                                </a>
+                            </li>
+                            <li><!-- CLIENTS -->
+                                <a href="/#clients">
+                                    CLIENTS
+                                </a>
+                            </li>
+                            <li><!-- CONTACT -->
+                                <a href="/#contact">
+                                    CONTACT
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    PROJECT 
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item"><a href="/residential">Residential</a></li>
+                                    <li class="dropdown-item"><a href="/commercial">Commercial</a></li>
+                                </ul>
+                            </li>
+
+
+                            <% if user_signed_in? %>
+                                <li><!-- EDIT PROFILE -->
+                                    <%= link_to "EDIT PROFILE",
+                                    edit_user_registration_path %>
+                                </li>
+                                <% if current_user.is_employee?%>
+                                    <li><!-- ADMIN PANEL -->
+                                        <%= link_to "ADMIN PANEL",
+                                        rails_admin_path %>
+                                    </li>
+
+                                <%end%>
+                                <li><!-- SIGN OUT -->
+                                    <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, :class => "nav nav-pills nav-main nav-onepage" %>
+                                </li>
+                            <% else %>
+                                <li><!-- SIGN UP -->
+                                    <%= link_to "SIGN UP",
+                                    new_user_registration_path %>
+                                </li>
+                                <li><!-- SIGN IN -->
+                                    <%= link_to "SIGN IN",
+                                    new_user_session_path %>
+                                </li>
+                            <% end %>
+
+
+
+                                
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+    </div>
