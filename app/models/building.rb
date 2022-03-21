@@ -5,7 +5,12 @@ class Building < ApplicationRecord
     has_one :battery
 
     def twilio
-        puts 5
+        client = Twilio::REST::Client.new
+        client.messages.create({
+          from: Rails.application.secrets.twilio_phone_number,
+          to: 'YOUR PERSONAL PHONE NUMBER GOES HERE',
+          body: 'Hello there! This is a test'
+        })
     end
 
 

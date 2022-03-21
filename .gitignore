@@ -22,3 +22,5 @@
 /log/*
 !/log/.keep
 
+/application.yml
+
