@@ -1,0 +1,20 @@
+  [1m[36mBuilding Load (0.7ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mAddress Load (5.6ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 79 LIMIT 1[0m
+  [1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.5ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.6ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (1.2ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.7ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.6ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (0.5ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (1.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (27.9ms)[0m  [1m[34mSELECT `customers`.* FROM `customers` WHERE `customers`.`id` = 61 LIMIT 1[0m
+  [1m[36mAddress Load (1.9ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 79 LIMIT 1[0m
+  [1m[36mBuilding Update (34.9ms)[0m  [1m[33mUPDATE `buildings` SET `buildings`.`full_name_of_the_technical_contact_for_the_building` = 'dave', `buildings`.`updated_at` = '2022-03-21 20:24:21.185052' WHERE `buildings`.`id` = 10[0m
+  [1m[36mTRANSACTION (27.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBuilding Load (1.7ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` ORDER BY `buildings`.`id` ASC LIMIT 1[0m
