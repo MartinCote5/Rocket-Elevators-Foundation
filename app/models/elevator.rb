@@ -11,20 +11,16 @@ class Elevator < ApplicationRecord
 
   after_update :elevator_status
   def elevator_status
-    x = Elevator.all
-    for elevator in x
-      
-     
-      if elevator.status == "Intervention"
+    if status == "intervention"    
         @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
 
         @client.messages.create(
         from: ENV["TWILIO_PHONE_NUMBER"],
         to: '8196769493',
-        body: 'Hey!'
+        body: 'Hey vvvv!'
         )
         puts "almost there"
-      end
+      
     end  
   end
 
