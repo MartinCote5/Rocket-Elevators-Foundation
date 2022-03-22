@@ -55,3 +55,10 @@
   [1m[36mElevator Update (3.5ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'active', `elevators`.`updated_at` = '2022-03-22 18:24:14.281028' WHERE `elevators`.`id` = 20[0m
   [1m[36mTRANSACTION (36.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mElevator Load (2.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (2.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (1.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (1.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (7.3ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Update (8.6ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'inactive', `elevators`.`updated_at` = '2022-03-22 20:16:29.387520' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[35mCOMMIT[0m
