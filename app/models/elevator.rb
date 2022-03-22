@@ -11,8 +11,14 @@ class Elevator < ApplicationRecord
 
   after_update :elevator_status
   def elevator_status
+    p id
+    p self.column.battery.building.full_name_of_the_building_administrator
+    # p after_save :status
     if status == "intervention"    
+        
+        
         @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
+        p Elevator.change
 
         @client.messages.create(
         from: ENV["TWILIO_PHONE_NUMBER"],

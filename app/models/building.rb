@@ -3,31 +3,6 @@ class Building < ApplicationRecord
     belongs_to :address
     has_many :building_details
     has_one :battery
-
-    def twilio
-        client = Twilio::REST::Client.new
-        client.messages.create({
-          from: Rails.application.secrets.twilio_phone_number,
-          to: 'YOUR PERSONAL PHONE NUMBER GOES HERE',
-          body: 'Hello there! This is a test'
-        })
-    end
-
-
-    # b= Building.find(10)
-
-
-    # if Building.find(10).full_name_of_the_technical_contact_for_the_building == "dave"
-    #     p "working"
-    # end    
-
-
-    # if b.full_name_of_the_technical_contact_for_the_building == "dave"
-    #     p "working"
-    # end  
-
- 
-
 end
 
 

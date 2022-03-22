@@ -892,3 +892,116 @@
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
   [1m[36mColumn Load (9.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
   [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBuilding Load (6.8ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` ORDER BY `buildings`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (9.8ms)[0m  [1m[34mSELECT `customers`.* FROM `customers` WHERE `customers`.`id` = 1 LIMIT 1[0m
+  [1m[36mAddress Load (8.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 70 LIMIT 1[0m
+  [1m[36mBuilding Update (7.3ms)[0m  [1m[33mUPDATE `buildings` SET `buildings`.`phone_number_of_the_building_administrator` = '8196769493', `buildings`.`updated_at` = '2022-03-22 14:21:43.529360' WHERE `buildings`.`id` = 1[0m
+  [1m[36mTRANSACTION (60.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (4.5ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 6 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (10.7ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 2 LIMIT 1[0m
+  [1m[36mElevator Update (2.4ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:26:41.391686' WHERE `elevators`.`id` = 6[0m
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (9.5ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:26:41.391686' WHERE `elevators`.`id` = 6[0m
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (10.1ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:26:41.391686' WHERE `elevators`.`id` = 6[0m
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (9.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:26:41.391686' WHERE `elevators`.`id` = 6[0m
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (11.0ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:26:41.391686' WHERE `elevators`.`id` = 6[0m
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (0.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:26:41.391686' WHERE `elevators`.`id` = 6[0m
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (2.6ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 37 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (9.6ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 13 LIMIT 1[0m
+  [1m[36mElevator Update (2.3ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:28:37.717616' WHERE `elevators`.`id` = 37[0m
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (5.0ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 67 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (3.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 23 LIMIT 1[0m
+  [1m[36mElevator Update (3.5ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:29:39.660113' WHERE `elevators`.`id` = 67[0m
+  [1m[36mTRANSACTION (19.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (10.0ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 44 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (7.1ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 16 LIMIT 1[0m
+  [1m[36mElevator Update (1.4ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:35:48.925850' WHERE `elevators`.`id` = 44[0m
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (6.0ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 24 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (2.3ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 9 LIMIT 1[0m
+  [1m[36mElevator Update (2.2ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:41:07.491298' WHERE `elevators`.`id` = 24[0m
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 35 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (9.4ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 13 LIMIT 1[0m
+  [1m[36mElevator Update (3.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:49:29.552798' WHERE `elevators`.`id` = 35[0m
+  [1m[36mTRANSACTION (16.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 45 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (6.3ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 16 LIMIT 1[0m
+  [1m[36mElevator Update (3.0ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 14:50:23.548797' WHERE `elevators`.`id` = 45[0m
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.5ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 31 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 12 LIMIT 1[0m
+  [1m[36mElevator Update (4.0ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:06:48.274719' WHERE `elevators`.`id` = 31[0m
+  [1m[36mTRANSACTION (19.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (3.5ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 32 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (6.3ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 12 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.5ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 31 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.5ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 12 LIMIT 1[0m
+  [1m[36mElevator Update (2.1ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:12:33.464850' WHERE `elevators`.`id` = 31[0m
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.6ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 78 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (10.2ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 27 LIMIT 1[0m
+  [1m[36mElevator Update (10.5ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:14:30.586183' WHERE `elevators`.`id` = 78[0m
+  [1m[36mTRANSACTION (13.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 89 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (6.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 30 LIMIT 1[0m
+  [1m[36mElevator Update (3.8ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:15:46.888782' WHERE `elevators`.`id` = 89[0m
+  [1m[36mTRANSACTION (17.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.7ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 2 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.1ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Update (4.4ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:16:55.555729' WHERE `elevators`.`id` = 2[0m
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (7.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 44 LIMIT 1[0m
+  [1m[36mColumn Load (13.7ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 16 LIMIT 1[0m
+  [1m[36mElevator Load (3.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 87 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (10.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 29 LIMIT 1[0m
+  [1m[36mElevator Update (1.6ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:19:31.098529' WHERE `elevators`.`id` = 87[0m
+  [1m[36mTRANSACTION (19.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 33 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (7.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 12 LIMIT 1[0m
+  [1m[36mElevator Update (2.4ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:21:43.287075' WHERE `elevators`.`id` = 33[0m
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (2.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 32 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.3ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 12 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 55 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (7.8ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Update (2.0ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:24:43.501393' WHERE `elevators`.`id` = 55[0m
+  [1m[36mTRANSACTION (23.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (2.1ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Update (1.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:26:52.879741' WHERE `elevators`.`id` = 1[0m
+  [1m[36mBattery Load (4.4ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (6.7ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (19.4ms)[0m  [1m[31mROLLBACK[0m
