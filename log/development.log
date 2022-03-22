@@ -1,0 +1,57 @@
+  [1m[36mElevator Load (1.6ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 212 LIMIT 1[0m
+  [1m[36mElevator Load (0.7ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 234 LIMIT 1[0m
+  [1m[36mElevator Load (1.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (0.8ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Load (1.3ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status`, `elevator_id` FROM `elevators`[0m
+  [1m[36mElevator Load (1.0ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status`, `elevator_id` FROM `elevators`[0m
+  [1m[36mElevator Load (1.8ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 2 LIMIT 1[0m
+  [1m[36mElevator Load (56.1ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status` FROM `elevators`[0m
+  [1m[36mElevator Load (0.7ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 23 LIMIT 1[0m
+  [1m[36mElevator Load (0.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 2 LIMIT 1[0m
+  [1m[36mElevator Load (0.7ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (0.7ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status` FROM `elevators` /* loading for inspect */ LIMIT 11[0m
+  [1m[36mElevator Load (1.0ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status` FROM `elevators` /* loading for inspect */ LIMIT 11[0m
+  [1m[36mElevator Load (0.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (0.8ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status` FROM `elevators` /* loading for inspect */ LIMIT 11[0m
+  [1m[36mElevator Load (0.7ms)[0m  [1m[34mSELECT `elevators`.`serial_number`, `elevators`.`status` FROM `elevators` /* loading for inspect */ LIMIT 11[0m
+  [1m[36mElevator Load (0.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (3.0ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (0.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (3.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (2.3ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (0.8ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (0.8ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mElevator Load (1.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mColumn Load (16.4ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Load (1.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.2ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Update (10.8ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'active', `elevators`.`updated_at` = '2022-03-22 14:50:36.144353' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (21.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (1.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (0.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Update (1.2ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'inactive', `elevators`.`updated_at` = '2022-03-22 15:00:33.703669' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (22.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (10.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'active', `elevators`.`updated_at` = '2022-03-22 16:57:29.146812' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (34.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElevator Update (4.7ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'inactive', `elevators`.`updated_at` = '2022-03-22 16:58:28.485553' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (31.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (1.9ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.2ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Update (4.0ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'active', `elevators`.`updated_at` = '2022-03-22 16:59:56.095976' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (18.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (2.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (0.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Update (2.5ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'inactive', `elevators`.`updated_at` = '2022-03-22 18:00:06.197825' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (19.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (1.0ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (0.7ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 4 LIMIT 1[0m
+  [1m[36mElevator Update (3.5ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'active', `elevators`.`updated_at` = '2022-03-22 18:24:14.281028' WHERE `elevators`.`id` = 20[0m
+  [1m[36mTRANSACTION (36.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (2.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 20 LIMIT 1[0m

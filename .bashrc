@@ -1,0 +1,4 @@
+DATABASE_USERNAME="gabstan"
+DATABASE_PASSWORD="Vivelefoot10!"
+PSQL_USERNAME="codeboxx"
+PSQL_PASSWORD="Codeboxx1!"
