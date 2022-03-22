@@ -1045,3 +1045,29 @@
   [1m[36mBattery Load (6.6ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
   [1m[36mBuilding Load (3.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
   [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBuilding Load (35.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` ORDER BY `buildings`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (7.7ms)[0m  [1m[34mSELECT `customers`.* FROM `customers` WHERE `customers`.`id` = 1 LIMIT 1[0m
+  [1m[36mAddress Load (8.1ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 70 LIMIT 1[0m
+  [1m[36mBuilding Update (40.9ms)[0m  [1m[33mUPDATE `buildings` SET `buildings`.`phone_number_of_the_building_administrator` = ' 1-888-734-4567', `buildings`.`updated_at` = '2022-03-22 18:58:04.683655' WHERE `buildings`.`id` = 1[0m
+  [1m[36mTRANSACTION (52.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBuilding Load (0.9ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (1.7ms)[0m  [1m[34mSELECT `customers`.* FROM `customers` WHERE `customers`.`id` = 61 LIMIT 1[0m
+  [1m[36mAddress Load (0.8ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 79 LIMIT 1[0m
+  [1m[36mBuilding Update (2.9ms)[0m  [1m[33mUPDATE `buildings` SET `buildings`.`technical_contact_phone_for_the_building` = '8196769493', `buildings`.`updated_at` = '2022-03-22 19:00:37.062296' WHERE `buildings`.`id` = 10[0m
+  [1m[36mTRANSACTION (18.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBuilding Load (4.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mBattery Load (25.5ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`building_id` = 10 LIMIT 1[0m
+  [1m[36mColumn Load (12.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`battery_id` = 10 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mColumn Load (1.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`battery_id` = 10 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mColumn Load (9.2ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`battery_id` = 10 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mColumn Load (1.1ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`battery_id` = 10 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mColumn Load (0.8ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`battery_id` = 10[0m
+  [1m[36mElevator Load (2.6ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 79 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (2.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 27 LIMIT 1[0m
+  [1m[36mElevator Update (7.1ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 19:16:09.107120' WHERE `elevators`.`id` = 79[0m
+  [1m[36mBattery Load (2.9ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 10 LIMIT 1[0m
+  [1m[36mBuilding Load (2.1ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 10 LIMIT 1[0m
+  [1m[36mTRANSACTION (35.4ms)[0m  [1m[35mCOMMIT[0m
