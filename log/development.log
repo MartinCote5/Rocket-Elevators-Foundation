@@ -1005,3 +1005,43 @@
   [1m[36mBattery Load (4.4ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
   [1m[36mBuilding Load (6.7ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
   [1m[36mTRANSACTION (19.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.3ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (12.8ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Update (2.4ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:32:36.607528' WHERE `elevators`.`id` = 1[0m
+  [1m[36mBattery Load (5.4ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (3.0ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (0.7ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (0.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Update (2.7ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:33:36.293778' WHERE `elevators`.`id` = 1[0m
+  [1m[36mBattery Load (1.6ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (4.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (22.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (2.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Update (9.4ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 16:35:15.758286' WHERE `elevators`.`id` = 1[0m
+  [1m[36mBattery Load (1.3ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (3.9ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (23.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElevator Load (1.0ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (0.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mElevator Update (0.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'intervention', `elevators`.`updated_at` = '2022-03-22 17:29:52.954927' WHERE `elevators`.`id` = 1[0m
+  [1m[36mBattery Load (1.9ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (1.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (32.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (1.2ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.0ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mBattery Load (1.0ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (9.6ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (1.3ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (1.2ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 1 LIMIT 1[0m
+  [1m[36mBattery Load (6.6ms)[0m  [1m[34mSELECT `batteries`.* FROM `batteries` WHERE `batteries`.`id` = 1 LIMIT 1[0m
+  [1m[36mBuilding Load (3.3ms)[0m  [1m[34mSELECT `buildings`.* FROM `buildings` WHERE `buildings`.`id` = 1 LIMIT 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
