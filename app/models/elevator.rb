@@ -1,7 +1,7 @@
 class Elevator < ApplicationRecord
     require 'slack-notifier'
     belongs_to :column
-    after_update :elevatorNotification
+    before_update :elevatorNotification
     def elevatorNotification
         if status_changed? == true
             notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
