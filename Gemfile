@@ -30,6 +30,8 @@ gem 'whenever', require: false
 gem 'faker'
 gem 'json'
 gem 'net-http'
+gem 'excon', :require => false
+gem 'dropbox_api'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -88,3 +90,4 @@ gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'blazer'
 gem "figaro"
 gem 'slack-notifier', '~> 2.4'
+gem 'twilio-ruby'
