@@ -9,7 +9,7 @@ class Customer < ApplicationRecord
   after_save :check_lead
 
   def address_map
-    "patate"
+    "#{self.id}"
   end 
 
   private

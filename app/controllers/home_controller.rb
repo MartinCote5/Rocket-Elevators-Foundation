@@ -12,4 +12,16 @@ class HomeController < ApplicationController
   def quote
     @quote = Quote.new;
   end
+
+  def geo
+    if current_user
+      if current_user.role == 'employee'
+        # Here we can render the page
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
 end

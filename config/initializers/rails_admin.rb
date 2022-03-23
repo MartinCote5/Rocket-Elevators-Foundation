@@ -28,7 +28,12 @@ RailsAdmin.config do |config|
 
   config.model Customer do
     list do
-      configure :address_map do
+      field :address_map do
+        def render
+          v = bindings[:views]
+          url = "/"
+          v.link_to(url)
+        end
       end
       fields :id, :address_map, :user_id, :company_name, :address_id, :full_name_of_the_company_contact, :company_contact_phone, :email_of_the_company_contact, :company_description, :full_name_of_service_technical_authority, :technical_authority_phone_for_service, :technical_manager_email_for_service, :created_at, :updated_at
     end
