@@ -1,4 +1,5 @@
 require 'net/http'
+require 'excon'
 require 'json'
 
 namespace :mysql do
@@ -9,6 +10,15 @@ namespace :mysql do
     lead_gen
     customer_gen
     building_gen
+  end
+
+  desc "Ask api to send back long/lat"
+  task coordonate: :environment do
+    addresses = Address.first
+    #for address in addresses
+    response = HTTParty.post('https://rocketelevator.me/building', body: {address: addresses.number_and_street, city: addresses.city})
+    p JSON.parse(response.body)
+    #end
   end
 
   def user_gen

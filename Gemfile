@@ -90,3 +90,4 @@ gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'blazer'
 gem "figaro"
 gem 'twilio-ruby'
+gem 'httparty'
