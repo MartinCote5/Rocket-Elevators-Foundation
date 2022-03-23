@@ -91,4 +91,5 @@ gem 'blazer'
 gem "figaro"
 gem 'slack-notifier', '~> 2.4'
 gem 'twilio-ruby'
+gem 'sendgrid-ruby'
 gem 'httparty'
