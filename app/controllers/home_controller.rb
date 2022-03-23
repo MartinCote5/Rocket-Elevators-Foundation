@@ -15,7 +15,8 @@ class HomeController < ApplicationController
 
   def geo
     if current_user
-      if current_user.role == 'employee'
+      @customer =  Customer.where(id: params[:id])[0]
+      if current_user.role == 'employee' && !@customer.blank?
         # Here we can render the page
       else
         redirect_to root_path
