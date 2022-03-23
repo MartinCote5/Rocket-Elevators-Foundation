@@ -89,4 +89,5 @@ gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'blazer'
 gem "figaro"
+gem 'slack-notifier', '~> 2.4'
 gem 'twilio-ruby'

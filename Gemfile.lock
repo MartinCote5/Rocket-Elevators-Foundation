@@ -325,6 +325,7 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    slack-notifier (2.4.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -403,6 +404,7 @@ DEPENDENCIES
   rails_admin
   sassc-rails
   selenium-webdriver
+  slack-notifier (~> 2.4)
   sprockets-rails
   stimulus-rails
   turbo-rails
