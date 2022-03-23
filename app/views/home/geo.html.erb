@@ -1,4 +1,13 @@
-<h1><%= @customer.company_name %></h1>
+
+<div class="container">
+    <div>Building #<%= @building.id %></div>
+    <div>Client name: <%= @building.customer.full_name_of_the_company_contact %></div>
+    <div>Number of batteries: ?</div>
+    <div>Number of columns: <%= @building.battery.column.count %></div>
+    <div>Number of elevator: <%= @number_of_elevators %></div>
+    <div>Name of the technical contact: <%= @building.full_name_of_the_technical_contact_for_the_building %></div>
+</div>  
+
 
 <p>
 <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@building.address.latitude},#{@building.address.longitude}&key=#{ENV['GOOGLE_MAPS_API_KEY']}", alt: "Map" %>
