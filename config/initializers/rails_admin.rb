@@ -26,30 +26,24 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
-  config.model Customer do
+  config.model Building do
     list do
-      configure :address_map do
-      end
       field :id
       field :address_map do
         formatted_value do
-          path = bindings[:view].show_path(model_name: 'Customer', id: bindings[:object].id)
           bindings[:view].link_to("Map", "/geo/#{bindings[:object].id}")
         end
       end
-      field :user_id
-      field :company_name
+      field :customer_id
       field :address_id
-      field :full_name_of_the_company_contact
-      field :company_contact_phone
-      field :email_of_the_company_contact
-      field :company_description
-      field :full_name_of_service_technical_authority
-      field :technical_authority_phone_for_service
-      field :technical_manager_email_for_service
+      field :full_name_of_the_building_administrator
+      field :email_of_the_administrator_of_the_building
+      field :phone_number_of_the_building_administrator
+      field :full_name_of_the_technical_contact_for_the_building
+      field :technical_contact_email_for_the_building
+      field :technical_contact_phone_for_the_building
       field :created_at
       field :updated_at
-      #fields :id, :address_map, :user_id, :company_name, :address_id, :full_name_of_the_company_contact, :company_contact_phone, :email_of_the_company_contact, :company_description, :full_name_of_service_technical_authority, :technical_authority_phone_for_service, :technical_manager_email_for_service, :created_at, :updated_at
     end
   end
 
