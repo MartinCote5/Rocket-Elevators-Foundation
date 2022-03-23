@@ -4,30 +4,20 @@ class Lead < ApplicationRecord
     after_save :SENDGRID_API_KEY
    
     def SENDGRID_API_KEY
-    #   from = Email.new(email: 'codeboxx.h22@gmail.com')
-    #   to = Email.new(email: 'jsgotty74@gmail.com')
-    #   subject = 'This is a test message!'
-    # #   content = Content.new(type: 'text/plain', value: 'Greetings [lead.name], We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project [lead.project]. A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
-        
-    # #     We’ll Talk soon
-            
-    # #     The Rocket Team.')
-    #   mail = Mail.new(from, subject, to, content)
-    #   mail.template_id = 'd-9e50f25cb38f4219889970b77111903c'
-    #   sg = SendGrid::API.new(api_key: ENV["SENDGRID_API_KEY"])
-    #   response = sg.client.mail._('send').post(request_body: mail.to_json)
-    #   puts response.status_code
-    #   puts response.body
-    #   puts response.headers
+    lead = Lead.last
+    fullName = lead.full_name_of_the_contact
+    projectName = lead.project_name
+    email = lead.e_mail
 
         mail = Mail.new
         mail.from = Email.new(email: 'codeboxx.h22@gmail.com')
         personalization = Personalization.new
-        personalization.add_to(Email.new(email: 'jsgotty74@gmail.com'))
+        personalization.add_to(Email.new(email: email))
         personalization.add_dynamic_template_data({
-            "subject" => "Testing potato",
-            "name" => "Example User",
-            "city" => "Denver"
+            "subject" => "Thanks for contacting us",
+            "fullName" => fullName,
+            "projectName" => projectName,
+            "email" => email
         })
         mail.add_personalization(personalization)
         mail.template_id = 'd-9e50f25cb38f4219889970b77111903c'
