@@ -1,5 +1,0 @@
-# config/application.yml
-
-TWILIO_ACCOUNT_SID: "AC1ddad3fc708a2bc602ecd88060c5caa9"
-TWILIO_AUTH_TOKEN: "1975dec4fdf08bdc3d9c1e6fe963d87c"
-TWILIO_PHONE_NUMBER: "+12197322327"
