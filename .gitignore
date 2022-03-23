@@ -25,8 +25,3 @@
 /config/application.yml
 
 /config/secrets.yml
-<<<<<<< HEAD
-# Ignore application configuration
-/config/application.yml
-=======
->>>>>>> development
