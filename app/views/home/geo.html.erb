@@ -1,5 +1,5 @@
 <h1><%= @customer.company_name %></h1>
 
 <p>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@place.latitude},#{@place.longitude}&key=#{ENV['GOOGLE_MAPS_API_KEY']}", alt: "Map" %>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@building.address.latitude},#{@building.address.longitude}&key=#{ENV['GOOGLE_MAPS_API_KEY']}", alt: "Map" %>
 </p>
