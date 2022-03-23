@@ -15,14 +15,14 @@ class HomeController < ApplicationController
 
   def geo
     if current_user
-      p '==========================='
-      @building =  Building.find(params[:id])
+      @building =  Building.where(id: params[:id])[0]
       if current_user.role == 'employee' && !@building.blank?
         # Here we can render the page
+        @number_of_elevators = 0
+        for column in @building.battery.column
+          @number_of_elevators += column.elevator.count
+        end
       else
-        p '==========================='
-        p @building
-        p '==========================='
         redirect_to root_path
       end
     else
