@@ -118,3 +118,8 @@
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
   [1m[36mElevator Update (0.9ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'active', `elevators`.`updated_at` = '2022-03-22 21:24:03.494031' WHERE `elevators`.`id` = 652[0m
   [1m[36mTRANSACTION (21.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElevator Load (1.1ms)[0m  [1m[34mSELECT `elevators`.* FROM `elevators` WHERE `elevators`.`id` = 456 LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mColumn Load (2.9ms)[0m  [1m[34mSELECT `columns`.* FROM `columns` WHERE `columns`.`id` = 76 LIMIT 1[0m
+  [1m[36mElevator Update (0.8ms)[0m  [1m[33mUPDATE `elevators` SET `elevators`.`status` = 'inactive', `elevators`.`updated_at` = '2022-03-22 23:46:12.257956' WHERE `elevators`.`id` = 456[0m
+  [1m[36mTRANSACTION (20.2ms)[0m  [1m[35mCOMMIT[0m
