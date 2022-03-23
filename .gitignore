@@ -23,5 +23,5 @@
 !/log/.keep
 
 /config/application.yml
-
+/config/database.yml
 /config/secrets.yml
