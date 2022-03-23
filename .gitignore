@@ -22,3 +22,6 @@
 /log/*
 !/log/.keep
 
+/config/application.yml
+
+/config/secrets.yml
