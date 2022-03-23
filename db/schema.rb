@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_23_185410) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type_of_address"
     t.string "status"
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "customer_id"
+    t.float "longitude"
+    t.float "latitude"
     t.index ["customer_id"], name: "fk_rails_d5f9efddd3"
   end
 
@@ -134,6 +136,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
     t.string "department_in_charge_of_the_elevators"
     t.text "message"
     t.binary "attached_file_stored_as_a_binary_file", size: :long
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "long_lat_in_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

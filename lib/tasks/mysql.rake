@@ -13,12 +13,15 @@ namespace :mysql do
   end
 
   desc "Ask api to send back long/lat"
-  task coordonate: :environment do
-    addresses = Address.first
-    #for address in addresses
-    response = HTTParty.post('https://rocketelevator.me/building', body: {address: addresses.number_and_street, city: addresses.city})
-    p JSON.parse(response.body)
-    #end
+  task coordinate: :environment do
+    addresses = Address.all
+    for address in addresses
+      response = HTTParty.post('https://rocketelevator.me/building', body: {  address: address.number_and_street, city: address.city})
+      json = JSON.parse(response.body)
+      address.longitude = json['lng']
+      address.latitude = json['lat']
+      address.save
+    end
   end
 
   def user_gen
