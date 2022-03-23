@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_23_185410) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type_of_address"
     t.string "status"
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "customer_id"
+    t.float "longitude"
+    t.float "latitude"
     t.index ["customer_id"], name: "fk_rails_d5f9efddd3"
   end
 
@@ -40,62 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "fk_rails_fc40470545"
-  end
-
-  create_table "blazer_audits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "query_id"
-    t.text "statement"
-    t.string "data_source"
-    t.datetime "created_at"
-    t.index ["query_id"], name: "index_blazer_audits_on_query_id"
-    t.index ["user_id"], name: "index_blazer_audits_on_user_id"
-  end
-
-  create_table "blazer_checks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "creator_id"
-    t.bigint "query_id"
-    t.string "state"
-    t.string "schedule"
-    t.text "emails"
-    t.text "slack_channels"
-    t.string "check_type"
-    t.text "message"
-    t.datetime "last_run_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_blazer_checks_on_creator_id"
-    t.index ["query_id"], name: "index_blazer_checks_on_query_id"
-  end
-
-  create_table "blazer_dashboard_queries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "dashboard_id"
-    t.bigint "query_id"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dashboard_id"], name: "index_blazer_dashboard_queries_on_dashboard_id"
-    t.index ["query_id"], name: "index_blazer_dashboard_queries_on_query_id"
-  end
-
-  create_table "blazer_dashboards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "creator_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_blazer_dashboards_on_creator_id"
-  end
-
-  create_table "blazer_queries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "creator_id"
-    t.string "name"
-    t.text "description"
-    t.text "statement"
-    t.string "data_source"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
   end
 
   create_table "building_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -190,6 +136,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_232806) do
     t.string "department_in_charge_of_the_elevators"
     t.text "message"
     t.binary "attached_file_stored_as_a_binary_file", size: :long
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "long_lat_in_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
