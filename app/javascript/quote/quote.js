@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let inputs = document.querySelector('#results').getElementsByTagName('input');
         
         inputs[0].value = "0";
-        for (let i = 1; i < inputs.length - 1; i++)
+        for (let i = 1; i < inputs.length - 3; i++)
             inputs[i].value = '$ ' + return_commas(0);
     }
 
