@@ -1,4 +1,27 @@
+<% provide :head_tags do %>
+   <script>
 
+   function initMap(lat, lng) {
+    var myCoords = new google.maps.LatLng(lat, lng);
+    var mapOptions = {
+        center: myCoords,
+        zoom: 14
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var marker = new google.maps.Marker({
+        position: myCoords,
+        map: map
+    });
+}
+   $(document).ready(function () {
+       setTimeout(() => {
+           initMap(<%=@building.address.latitude%>, <%=@building.address.longitude%>)
+       }, 300);
+       
+   })
+   
+    </script>
+<% end %>
 
 
 <div class="container">
@@ -15,12 +38,6 @@
 <p>
     <div id="map"></div>
 </p>
+ 
+ 
 
-
-<% provide :head_tags do %>
-    <script>
-    document.addEventListener("DOMContentLoaded", function(){
-        initMap(<%=@building.address.latitude%>, <%=@building.address.longitude%>)
-    });
-    </script>
-<% end %>

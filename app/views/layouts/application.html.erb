@@ -14,8 +14,8 @@
 
 		<script src="<%= asset_path('rocketElevator/jquery-3.3.1.min') %>"></script>
 		<%= yield(:head) %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
+    
     <%= yield(:head_tags) %> 
 	</head>
 
@@ -42,6 +42,7 @@
           e.target.parentElement.style.display = 'none';
            });
        </script>
+          <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>
     </body>
 </html>
 
