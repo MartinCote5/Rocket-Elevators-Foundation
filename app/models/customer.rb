@@ -8,6 +8,10 @@ class Customer < ApplicationRecord
   has_many :building
   after_save :check_lead
 
+  def address_map
+    "Map"
+  end 
+
   private
   def check_lead
     customer = Customer.last
