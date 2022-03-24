@@ -92,3 +92,4 @@ gem "figaro"
 gem 'slack-notifier', '~> 2.4'
 gem 'twilio-ruby'
 gem 'ibm_watson'
+gem 'rest-client'
