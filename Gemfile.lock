@@ -440,8 +440,8 @@ DEPENDENCIES
   excon
   faker
   figaro
-  ibm_watson
   httparty
+  ibm_watson
   importmap-rails
   jbuilder
   jquery-rails
