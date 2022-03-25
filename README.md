@@ -62,8 +62,21 @@ Now change an elevator status to get a sms from twilio :
 - `e.save!` Is to save your change in the database, the SMS should be sent now!
 
 
+## How to use the Slack API:
 
+to test the slack API enter the following command in the terminal : 
 
+- `rails c`
+
+Now change an elevator status to get a message in the chanel elevator_operations on slack :
+
+- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice, make sure to set the right number according to the "id" of the building. the next step is optional but it is a way to verify it
+
+- `e.column.battery.building` Is to look at  which building the elevator is owned, the "id" number should match your "b" variable find parenthesis
+
+- `e.status = "intervention" ` Is to change the status of the elevator for the SMS condition 
+
+- `e.save!` Is to save your change in the database, the SMS should be sent now!
 
 
 ## Here is a explanatory video of our project :
