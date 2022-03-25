@@ -1,0 +1,2 @@
+INSERT INTO leads (full_name_of_the_contact, company_name, e_mail, phone, project_name, project_description, department_in_charge_of_the_elevators, message, attached_file_stored_as_a_binary_file, created_at, updated_at)
+VALUES ("President", "Trump", "RichGuy@Poor.com", "911", "GetTheMoney", "Stealing Your CashMoney", "Me", "My Preciousss", "None", "2021-02-15 00:00:00", "2021-02-15 00:00:00");

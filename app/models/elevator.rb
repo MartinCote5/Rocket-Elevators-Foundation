@@ -5,7 +5,7 @@ class Elevator < ApplicationRecord
     after_update :elevator_status
     def elevatorNotification
         if status_changed? == true
-            notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+            notifier = Slack::Notifier.new ENV["SLACK_WEBHOOK"]
             notifier.ping "The Elevator #{id} with Serial Number #{serial_number} changed status from #{status_change[0]} to #{status_change[1]}"
         end
     end
