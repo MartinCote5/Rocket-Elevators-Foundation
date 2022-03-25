@@ -1,3 +1,5 @@
+require 'rails_admin/abstract_model'
+
 RailsAdmin.config do |config|
   config.asset_source = :sprockets
 
@@ -25,13 +27,16 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+  
+
+  #config.main_app_name = ["Cool app", "BackOffice"]
 
   config.model Building do
     list do
       field :id
       field :address_map do
         formatted_value do
-          bindings[:view].link_to("Map", "/geo/#{bindings[:object].id}")
+          bindings[:view].link_to("Map", "/geo")
         end
       end
       field :customer_id
@@ -48,7 +53,30 @@ RailsAdmin.config do |config|
   end
 
   config.actions do
-    dashboard                     # mandatory
+    dashboard do                    # mandatory
+      controller do
+        proc do
+          text_to_synthesize = "Greeting #{current_user.email}. "
+          text_to_synthesize += "There are currently #{Elevator.all.count} elevators deployed in the #{Building.all.count} buildings of your #{Customer.all.count} customers. "
+          text_to_synthesize += "Currently, #{Elevator.where('status !=  \'Running\'').count} elevators are not in Running Status and are being serviced. "
+          text_to_synthesize += "You currently have #{Quote.all.count} quotes awaiting processing. "
+          text_to_synthesize += "You currently have #{Lead.all.count} leads in your contact requests. "
+          text_to_synthesize += "#{Battery.all.count} Batteries are deployed across #{Address.distinct(:city).count} cities. "
+          if params[:text]
+            polly = Aws::Polly::Client.new
+            @polly_voice = polly.synthesize_speech({
+              output_format: 'mp3',
+              text: text_to_synthesize,
+              voice_id: 'Joanna'
+            })
+            IO.copy_stream(@polly_voice.audio_stream, "#{params[:text]}.mp3") 
+            send_file "#{params[:text]}.mp3"
+          else
+            @buildings = Building.all
+          end
+        end
+      end
+    end
     index                         # mandatory
     new
     export

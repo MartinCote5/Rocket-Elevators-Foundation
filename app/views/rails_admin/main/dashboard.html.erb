@@ -1,0 +1,128 @@
+<p>
+    <div style="height:600px;" id="map"></div>
+</p>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP'] %>"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+    var options = {
+        zoom: 5,
+        center: new google.maps.LatLng(39.909736, -98.522109), // centered US
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        mapTypeControl: false
+    };
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    var infowindow = new google.maps.InfoWindow();
+    
+    let latitude = [];
+    let longitude = [];
+    let building = [];
+    let client_name = [];
+    let name_of_the_technical_contact = [];
+    let column = [];
+    <% for building in @buildings %>
+        latitude.push(<%= building.address.latitude %>)
+        longitude.push(<%= building.address.longitude %>)
+        building.push(<%= building.id %>)
+        client_name.push('<%= building.customer.full_name_of_the_company_contact %>')
+        name_of_the_technical_contact.push('<%= building.full_name_of_the_technical_contact_for_the_building %>')
+        column.push(<%= building.battery.columns.count %>)
+    <% end %>
+    let count = [];
+    <% for building in @buildings%>
+        <% count = 0 %>
+        <% columns = building.battery.columns %>
+        <% for column in columns %>
+            <% count += column.elevators.count %>
+        <% end %>
+        count.push(<%= count %>)
+    <%end%>
+    
+    for (let i = 0; i < latitude.length; i++){
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude[i], longitude[i]),
+            map: map,
+            title: 'Click me ' + i,
+        })
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            console.log("in here", marker, i)
+            return function() {
+                infowindow.setContent('latitude'+ latitude[i] + "<br> "
+                 + 'Location of the Building: ' + building[i] + " <br>"
+                 + 'Number of floors in the building: ' + <%= rand(1..60) %> + "<br>"
+                 + 'Client Name: ' + client_name[i] + "<br>" 
+                 + 'Number of Batteries: ' + 1 + "<br>"
+                 + 'Number of Columns: ' + column[i] + "<br>"
+                 + 'Numbre of elevators: ' + count[i] + "<br>"
+                 + 'Full name of technical contact: ' + name_of_the_technical_contact[i] + "<br>");
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+</script>
+
+
+<% if @abstract_models %>
+  <table class="table table-condensed table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="shrink model-name">
+          <%= t "admin.table_headers.model_name" %>
+        </th>
+        <th class="shrink last-created">
+          <%= t "admin.table_headers.last_created" %>
+        </th>
+        <th class="records">
+          <%= t "admin.table_headers.records" %>
+        </th>
+        <th class="shrink controls"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @abstract_models.each do |abstract_model| %>
+        <% if authorized? :index, abstract_model %>
+          <% index_path = index_path(model_name: abstract_model.to_param) %>
+          <% row_class = "#{cycle("odd", "even")}#{" link" if index_path} #{abstract_model.param_key}_links" %>
+          <tr class="<%= row_class %>" data-link="<%= index_path %>">
+            <% last_created = @most_recent_created[abstract_model.model.name] %>
+            <% active = last_created.try(:today?) %>
+            <td>
+              <span class="show">
+                <%= link_to abstract_model.config.label_plural, index_path %>
+              </span>
+            </td>
+            <td>
+              <% if last_created %>
+                <%= t "admin.misc.time_ago", time: time_ago_in_words(last_created), default: "#{time_ago_in_words(last_created)} #{t("admin.misc.ago")}" %>
+              <% end %>
+            </td>
+            <td>
+              <% count = @count[abstract_model.model.name] %>
+              <% percent = count > 0 ? (@max <= 1 ? count : ((Math.log(count+1) * 100.0) / Math.log(@max+1)).to_i) : -1 %>
+              <div class="<%= active ? 'active progress-bar-striped ' : '' %>progress" style="margin-bottom:0px">
+                <div class="bg-<%= get_indicator(percent) %> progress-bar animate-width-to" data-animate-length="<%= ([1.0, percent].max.to_i * 20) %>" data-animate-width-to="<%= [2.0, percent].max.to_i %>%" style="width:2%">
+                  <%= @count[abstract_model.model.name] %>
+                </div>
+              </div>
+            </td>
+            <td class="links">
+              <ul class="inline list-inline">
+                <%= menu_for :collection, abstract_model, nil, true %>
+              </ul>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<% if @history && authorized?(:history_index) %>
+  <div class="block" id="block-tables">
+    <div class="content">
+      <h2>
+        <%= t("admin.actions.history_index.menu") %>
+      </h2>
+      <%= render partial: 'rails_admin/main/dashboard_history' %>
+    </div>
+  </div>
+<% end %>
