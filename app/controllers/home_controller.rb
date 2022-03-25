@@ -16,6 +16,7 @@ class HomeController < ApplicationController
   def geo
     if current_user
       @buildings =  Building.all
+      @columns = Column.all
       # Customer?
       if current_user.role == 'employee' && !@buildings.blank?
         # Here we can render the page

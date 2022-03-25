@@ -1,27 +1,3 @@
-
-<form id="input">
-    <input type="submit" value="Start briefing" id="submit" />
-</form>
-
-<audio id="player"></audio>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var input = document.getElementById('input'),
-        text = document.getElementById('text'),
-        player = document.getElementById('player'),
-        submit = document.getElementById('submit');
-        
-    input.addEventListener('submit', function (event) {
-    
-      player.src = '/admin?text=' + encodeURIComponent('poulet');
-      player.play();
-  
-      event.preventDefault();
-    });
-  });
-</script>
-
 <% if @abstract_models %>
   <table class="table table-condensed table-striped table-hover">
     <thead>
