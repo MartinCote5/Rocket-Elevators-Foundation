@@ -64,7 +64,7 @@ namespace :psql do
       city = customer.address.city
       for building in buildings
         battery = building.battery
-        columns = battery.column
+        columns = battery.columns
         for column in columns
           count += column.elevator.count
         end
