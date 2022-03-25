@@ -6,13 +6,13 @@ namespace :psql do
   desc "Send out batch messages"
   task create: :environment do
     conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/postgres?password=#{ENV["PSQL_PASSWORD"]}")
-    conn.exec( 'CREATE DATABASE Myriam')
-    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/Myriam?password=#{ENV["PSQL_PASSWORD"]}")
+    conn.exec( 'CREATE DATABASE myriam')
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
     create_tables conn
   end
 
   task send: :environment do
-    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/Myriam?password=#{ENV["PSQL_PASSWORD"]}")
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
     truncate_tables(conn)
     factquotes(conn)
     factcontact(conn)
