@@ -31,7 +31,7 @@ RailsAdmin.config do |config|
       field :id
       field :address_map do
         formatted_value do
-          bindings[:view].link_to("Map", "/geo/#{bindings[:object].id}")
+          bindings[:view].link_to("Map", "/geo")
         end
       end
       field :customer_id

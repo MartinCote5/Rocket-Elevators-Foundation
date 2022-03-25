@@ -1,43 +1,68 @@
-<% provide :head_tags do %>
-   <script>
-
-   function initMap(lat, lng) {
-    var myCoords = new google.maps.LatLng(lat, lng);
-    var mapOptions = {
-        center: myCoords,
-        zoom: 14
-    };
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var marker = new google.maps.Marker({
-        position: myCoords,
-        map: map
-    });
-}
-   $(document).ready(function () {
-       setTimeout(() => {
-           initMap(<%=@building.address.latitude%>, <%=@building.address.longitude%>)
-       }, 300);
-       
-   })
-   
-    </script>
-<% end %>
-
-
-<div class="container">
-    <div>Building #<%= @building.id %></div>
-    <div>Client name: <%= @building.customer.full_name_of_the_company_contact %></div>
-    <div>Number of batteries: ?</div>
-    <div>Number of columns: <%= @building.battery.column.count %></div>
-    <div>Number of elevator: <%= @number_of_elevators %></div>
-    <div>Name of the technical contact: <%= @building.full_name_of_the_technical_contact_for_the_building %></div>
-</div>  
-
-
-
 <p>
     <div id="map"></div>
 </p>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+    var options = {
+        zoom: 5,
+        center: new google.maps.LatLng(39.909736, -98.522109), // centered US
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        mapTypeControl: false
+    };
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    var infowindow = new google.maps.InfoWindow();
+
+    
+    
+
+    let latitude = [];
+    let longitude = [];
+    <% for building in @buildings %>
+        latitude.push(<%= building.address.latitude %>)
+        longitude.push(<%= building.address.longitude %>)
+    <% end %>
+    
+    for (let i = 0; i < latitude.length; i++){
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude[i], longitude[i]),
+            map: map,
+            title: 'Click me ' + i,
+        })
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            console.log("in here", marker, i)
+            return function() {
+                infowindow.setContent(marker.title);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+    
+    // (function(marker, i) {
+    //     console.log("test :", marker, i)
+    //     google.maps.event.addListener(marker, 'click', function() {
+    //         infowindow = new google.maps.InfoWindow({
+    //             content: "r",
+    //             Building: <%= @buildings[0].id %>,
+    //             number_of_floors_in_the_buildings: 4,
+    //             client_name: "<%= @buildings[0].customer.full_name_of_the_company_contact %>",
+    //             number_of_batteries: "?",
+    //             number_of_elevators: <%= @number_of_elevators %>,
+    //             name_of_the_technical_contact: "<%= @buildings[0].full_name_of_the_technical_contact_for_the_building %>"
+    //         });
+    //     })
+    // })
+</script>
+
+
+
+
+
+
+
+ 
+
  
  
 
