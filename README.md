@@ -22,6 +22,12 @@ Week 5 - Using and managing databases
 - `DATABASE_PASSWORD` The password of mysql database
 - `PSQL_USERNAME` Usename to postgres database
 - `PSQL_PASSWORD` Password to postgres database
+- `DROPBOX_KEY` Dropbox api key
+- `AWS_REGION` Region of the aws account
+- `AWS_ACCESS_KEY_ID` Key id for the aws account
+- `AWS_SECRET_ACCESS_KEY` Secret access key for the aws account
+- `SENDGRID_API_KEY` Key for sengrid
+- `GOOGLE_MAP` Key for the google map api
  
 To setup your environment variables for the project, follow theses instructions: [how to setup environment variables](https://www.twilio.com/blog/2018/01/how-to-set-environment-variables.html).
 
