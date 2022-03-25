@@ -9,7 +9,8 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
 
     if @lead.attached_file_stored_as_a_binary_file != nil
-      @lead.attached_file_stored_as_a_binary_file = @lead.attached_file_stored_as_a_binary_file.read
+        @lead.attachment_file_name = @lead.attached_file_stored_as_a_binary_file.original_filename
+        @lead.attached_file_stored_as_a_binary_file = @lead.attached_file_stored_as_a_binary_file.read   
     end
  
     respond_to do |format|
@@ -31,6 +32,6 @@ class LeadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lead_params
-      params.require(:lead).permit(:full_name_of_the_contact, :company_name, :e_mail, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :attached_file_stored_as_a_binary_file)
+      params.require(:lead).permit(:full_name_of_the_contact, :company_name, :e_mail, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :attached_file_stored_as_a_binary_file, :attachment_file_name)
     end
 end

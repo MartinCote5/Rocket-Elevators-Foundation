@@ -8,7 +8,7 @@ class Quote < ApplicationRecord
     def QuoteTickets
 
         # Your freshdesk domain
-        freshdesk_domain = 'codeboxx'
+        freshdesk_domain = 'rocketelevators-help'
 
         # It could be either your user name or api_key.
         user_name_or_api_key = ENV["FRESHDESK_API_KEY"]

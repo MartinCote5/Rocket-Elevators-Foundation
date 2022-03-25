@@ -5,7 +5,7 @@ class Lead < ApplicationRecord
     require 'json'
     after_create :LeadTickets
     def LeadTickets
-        freshdesk_domain = 'codeboxx'
+        freshdesk_domain = 'rocketelevators-help'
 
         # It could be either your user name or api_key.
         user_name_or_api_key = ENV["FRESHDESK_API_KEY"]
@@ -14,15 +14,20 @@ class Lead < ApplicationRecord
         password_or_x = 'X'
 
         #attachments should be of the form array of Hash with files mapped to the key 'resource'.
-        json_payload = {    
+        File.open(attachment_file_name, 'wb') do |f|
+            f.write attached_file_stored_as_a_binary_file
+        end
+    
+        json_payload = { 
                         status: 2,
                         unique_external_id: "#{id}",
                         priority: 1,
                         description: "The contact #{full_name_of_the_contact} from company #{company_name} can be reached at email #{e_mail} and at phone number #{phone}. #{department_in_charge_of_the_elevators} has a project named #{project_name} which would require contribution from Rocket Elevators. \n #{project_description}",
-                        subject: "#{full_name_of_the_contact} from #{company_name}"}.to_json
-        if attached_file_stored_as_a_binary_file == true
-            json_payload = {   attachments: "#{attached_file_stored_as_a_binary_file}"}.to_json
-        end
+                        subject: "#{full_name_of_the_contact} from #{company_name}",
+                        attachments: [File.new(attachment_file_name, 'rb')]}
+    
+        File.delete(attachment_file_name) if File.exist?(attachment_file_name)
+        
         freshdesk_api_path = 'api/v2/tickets'
         
         
@@ -31,7 +36,7 @@ class Lead < ApplicationRecord
         site = RestClient::Resource.new(freshdesk_api_url, user_name_or_api_key, password_or_x)
 
         begin
-        response = site.post(json_payload, :content_type=>'application/json')
+        response = site.post(json_payload)
         puts "response_code: #{response.code} \nLocation Header: #{response.headers[:Location]} \nresponse_body: #{response.body} \n"
         rescue RestClient::Exception => exception
         puts 'API Error: Your request is not successful. If you are not able to debug this error properly, mail us at support@freshdesk.com with the follwing X-Request-Id'
