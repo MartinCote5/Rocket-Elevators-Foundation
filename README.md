@@ -47,29 +47,30 @@ to test Twilio enter the following command in the terminal :
 
 - `rails c`
 
-First set your phone number to a "technical_contact_phone_for_the_building" column in the Building tab with these command :
+In the building tab, in the first column we already set the "technical_contact_phone_for_the_building" to your phone number in the database. Now to test it, change an elevator status to get a sms from twilio :
 
-- `b = Building.find(1)` Is to set the variable "b" to the building of your choice with the number in parenthesis 
- 
-- `b.technical_contact_phone_for_the_building = "enter_your_phone_number_here"` Is the set your phone number to the desired building in the right column.
-
-- `b.save!` Is to save your change in the database
-
-
-
-Now change an elevator status to get a sms from twilio :
-
-- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice, make sure to set the right number according to the "id" of the building. the next step is optional but it is a way to verify it
-
-- `e.column.battery.building` Is to look at  which building the elevator is owned, the "id" number should match your "b" variable find parenthesis
+- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice, in this case we want the first one!
 
 - `e.status = "intervention" ` Is to change the status of the elevator for the SMS condition 
 
 - `e.save!` Is to save your change in the database, the SMS should be sent now!
 
 
+## How to use the Slack API:
 
+to test the slack API enter the following command in the terminal : 
 
+- `rails c`
+
+Now change an elevator status to get a message in the chanel elevator_operations on slack :
+
+- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice. You can take a number between 1 and 8000.
+
+- `e.status` Is to look at the current status of the elevator.
+
+- `e.status = "intervention", "active", "inactive" ` Those are the the possible status of each elevator. You can choose any of those to change the  current status.
+
+- `e.save!` Is to save your change in the database, the message in the right slack channel should be sent now!
 
 
 ## Here is a explanatory video of our project :

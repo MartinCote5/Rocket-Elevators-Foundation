@@ -5,14 +5,14 @@ require 'mysql2'
 namespace :psql do
   desc "Send out batch messages"
   task create: :environment do
-    conn = PG.connect("postgres://#{ENV['codeboxx']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/postgres?password=#{ENV["Codeboxx1!"]}")
-    conn.exec( 'CREATE DATABASE GabrielStankunas')
-    conn = PG.connect("postgres://#{ENV['codeboxx']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/GabrielStankunas?password=#{ENV["Codeboxx1!"]}")
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/postgres?password=#{ENV["PSQL_PASSWORD"]}")
+    conn.exec( 'CREATE DATABASE myriam')
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
     create_tables conn
   end
 
   task send: :environment do
-    conn = PG.connect("postgres://#{ENV['codeboxx']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/GabrielStankunas?password=#{ENV["Codeboxx1!"]}")
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
     truncate_tables(conn)
     factquotes(conn)
     factcontact(conn)
@@ -64,7 +64,7 @@ namespace :psql do
       city = customer.address.city
       for building in buildings
         battery = building.battery
-        columns = battery.column
+        columns = battery.columns
         for column in columns
           count += column.elevator.count
         end
