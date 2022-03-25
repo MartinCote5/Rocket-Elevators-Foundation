@@ -12,55 +12,11 @@
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
     var infowindow = new google.maps.InfoWindow();
-
     
-    
-
-    let latitude = [];
-    let longitude = [];
-    <% for building in @buildings %>
-        latitude.push(<%= building.address.latitude %>)
-        longitude.push(<%= building.address.longitude %>)
-    <% end %>
-    
-    for (let i = 0; i < latitude.length; i++){
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(latitude[i], longitude[i]),
-            map: map,
-            title: 'Click me ' + i,
-        })
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            console.log("in here", marker, i)
-            return function() {
-                infowindow.setContent(marker.title);
-                infowindow.open(map, marker);
-            }
-        })(marker, i));
-    }
-    
-    // (function(marker, i) {
-    //     console.log("test :", marker, i)
-    //     google.maps.event.addListener(marker, 'click', function() {
-    //         infowindow = new google.maps.InfoWindow({
-    //             content: "r",
-    //             Building: <%= @buildings[0].id %>,
-    //             number_of_floors_in_the_buildings: 4,
-    //             client_name: "<%= @buildings[0].customer.full_name_of_the_company_contact %>",
-    //             number_of_batteries: "?",
-    //             number_of_elevators: <%= @number_of_elevators %>,
-    //             name_of_the_technical_contact: "<%= @buildings[0].full_name_of_the_technical_contact_for_the_building %>"
-    //         });
-    //     })
-    // })
-</script>
-
     let latitude = [];
     let longitude = [];
     let building = [];
-    //let number_of_floors_in_the_buildings = [];
     let client_name = [];
-    //let number_of_elevators = [];
     let name_of_the_technical_contact = [];
     let column = [];
     <% for building in @buildings %>
@@ -103,19 +59,4 @@
             }
         })(marker, i));
     }
-    
-    // (function(marker, i) {
-    //     console.log("test :", marker, i)
-    //     google.maps.event.addListener(marker, 'click', function() {
-    //         infowindow = new google.maps.InfoWindow({
-    //             content: "r",
-    //             Building: <%= @buildings[0].id %>,
-    //             number_of_floors_in_the_buildings: 4,
-    //             client_name: "<%= @buildings[0].customer.full_name_of_the_company_contact %>",
-    //             number_of_batteries: "?",
-    //             number_of_elevators: <%= @number_of_elevators %>,
-    //             name_of_the_technical_contact: "<%= @buildings[0].full_name_of_the_technical_contact_for_the_building %>"
-    //         });
-    //     })
-    // })
 </script>
