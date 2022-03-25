@@ -20,12 +20,12 @@ class Lead < ApplicationRecord
                         priority: 1,
                         description: "The contact #{full_name_of_the_contact} from company #{company_name} can be reached at email #{e_mail} and at phone number #{phone}. #{department_in_charge_of_the_elevators} has a project named #{project_name} which would require contribution from Rocket Elevators. \n #{project_description}",
                         subject: "#{full_name_of_the_contact} from #{company_name}"}.to_json
+        if attached_file_stored_as_a_binary_file == true
+            json_payload = {   attachments: "#{attached_file_stored_as_a_binary_file}"}.to_json
+        end
         freshdesk_api_path = 'api/v2/tickets'
         
-        if attached_file_stored_as_a_binary_file == true
-            json_payload = { attachments: "#{attached_file_stored_as_a_binary_file}"}
-        end
-
+        
         freshdesk_api_url  = "https://#{freshdesk_domain}.freshdesk.com/#{freshdesk_api_path}"
 
         site = RestClient::Resource.new(freshdesk_api_url, user_name_or_api_key, password_or_x)
@@ -41,7 +41,7 @@ class Lead < ApplicationRecord
     end
     require 'sendgrid-ruby'
     include SendGrid
-    after_save :SENDGRID_API_KEY
+    after_create :SENDGRID_API_KEY
    
     def SENDGRID_API_KEY
         lead = Lead.last
