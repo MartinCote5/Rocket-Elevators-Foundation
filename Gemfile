@@ -91,6 +91,8 @@ gem 'blazer'
 gem "figaro"
 gem 'slack-notifier', '~> 2.4'
 gem 'twilio-ruby'
+gem 'ibm_watson'
+gem 'rest-client'
 gem 'sendgrid-ruby'
 gem 'httparty'
 gem 'jquery-rails'

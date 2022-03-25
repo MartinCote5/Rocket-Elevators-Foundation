@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_23_185410) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_24_224715) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type_of_address"
     t.string "status"
@@ -161,6 +161,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_23_185410) do
     t.integer "range"
     t.string "company_name"
     t.text "email"
+    t.string "full_name_of_the_contact"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
