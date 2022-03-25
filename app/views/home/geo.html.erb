@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-<script>
-    let count = [];
-<% for building in @buildings %>
-    <% count = 0 %>
-    <% columns = building.battery.column %>
-    <% for column in columns %>
-        <% count += column.elevator.count %>
-    <% end %>
-    count.push(<%= count %>);
-<% end %>
-
-for (let i = 0; i < count.length; i++)
-    console.log(count[i]);
-
-</script>
-
-=======
 <p>
     <div id="map"></div>
 </p>
@@ -30,16 +12,11 @@ for (let i = 0; i < count.length; i++)
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
     var infowindow = new google.maps.InfoWindow();
-
     
-    
-
     let latitude = [];
     let longitude = [];
     let building = [];
-    //let number_of_floors_in_the_buildings = [];
     let client_name = [];
-    //let number_of_elevators = [];
     let name_of_the_technical_contact = [];
     let column = [];
     <% for building in @buildings %>
@@ -82,32 +59,4 @@ for (let i = 0; i < count.length; i++)
             }
         })(marker, i));
     }
-    
-    // (function(marker, i) {
-    //     console.log("test :", marker, i)
-    //     google.maps.event.addListener(marker, 'click', function() {
-    //         infowindow = new google.maps.InfoWindow({
-    //             content: "r",
-    //             Building: <%= @buildings[0].id %>,
-    //             number_of_floors_in_the_buildings: 4,
-    //             client_name: "<%= @buildings[0].customer.full_name_of_the_company_contact %>",
-    //             number_of_batteries: "?",
-    //             number_of_elevators: <%= @number_of_elevators %>,
-    //             name_of_the_technical_contact: "<%= @buildings[0].full_name_of_the_technical_contact_for_the_building %>"
-    //         });
-    //     })
-    // })
 </script>
-
-
-
-
-
-
-
- 
-
- 
->>>>>>> development
- 
-

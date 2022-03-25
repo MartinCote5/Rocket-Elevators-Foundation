@@ -16,11 +16,6 @@ class HomeController < ApplicationController
   def geo
     if current_user
       @buildings =  Building.all
-<<<<<<< HEAD
-      @columns = Column.all
-      # Customer?
-=======
->>>>>>> development
       if current_user.role == 'employee' && !@buildings.blank?
         # Here we can render the page
         @number_of_elevators = 0

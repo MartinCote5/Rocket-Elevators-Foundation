@@ -71,6 +71,8 @@ RailsAdmin.config do |config|
             })
             IO.copy_stream(@polly_voice.audio_stream, "#{params[:text]}.mp3") 
             send_file "#{params[:text]}.mp3"
+          else
+            @buildings = Building.all
           end
         end
       end
