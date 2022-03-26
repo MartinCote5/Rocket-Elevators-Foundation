@@ -28,6 +28,9 @@ Week 5 - Using and managing databases
 - `AWS_SECRET_ACCESS_KEY` Secret access key for the aws account
 - `SENDGRID_API_KEY` Key for sengrid
 - `GOOGLE_MAP` Key for the google map api
+- `TWILIO_ACCOUNT_SID` Key for the twilio api 
+- `SLACK_WEBHOOK` Key for the slack api
+- `FRESHDESK_API_KEY` Key for the freshdesk api
  
 To setup your environment variables for the project, follow theses instructions: [how to setup environment variables](https://www.twilio.com/blog/2018/01/how-to-set-environment-variables.html).
 
@@ -36,8 +39,6 @@ To setup your environment variables for the project, follow theses instructions:
 `rails mysql:faker` Is to fill the mysql database with fake data. Warning: it can take a while before it's finished.
 `rails psql:create` Is to create the postgresql database. The command requires that the postgres database is present on the postgresql server and is required to send data to the warehouse.
 `rails psql:send` Is the task that is used to fill the data warehouse with the informations inside the mysql server.
-
-
 
 
 
@@ -58,7 +59,7 @@ In the building tab, in the first column we already set the "technical_contact_p
 
 ## How to use the Slack API:
 
-to test the slack API enter the following command in the terminal : 
+To test the slack API enter the following command in the terminal : 
 
 - `rails c`
 
@@ -72,10 +73,26 @@ Now change an elevator status to get a message in the chanel elevator_operations
 
 - `e.save!` Is to save your change in the database, the message in the right slack channel should be sent now!
 
+## How to use the FreshDesk API:
+
+Once contact us is completed, a ticket is automatically sent to the freshdesk website.
+All the Informations to access the freshdesk account are provide in slack.
+
+## How to use the DropBox API:
+When a user become a customer, the file attachement given in the contact us form is transfer in dropbox and can be seen on :
+https://www.dropbox.com/home
+
+To do that, you have to be identified in:
+https://www.dropbox.com/developers/apps/info/dupssio1sb9bcxz
+after that tap on : App console, Rocket_Elevator_h22 and Generate a new API_Key
+
+## How to use the SndGrid API:
+Each new user by filling out the contact us form, automatically receives an email from the website in their email.
+
 
 ## Here is a explanatory video of our project :
 
-https://www.youtube.com/watch?v=6scoOEdhiXQ
+
 
 ## Here is the URL of our website :
 https://codeboxxmartincdomain2022.xyz
