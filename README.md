@@ -73,6 +73,22 @@ Now change an elevator status to get a message in the chanel elevator_operations
 
 - `e.save!` Is to save your change in the database, the message in the right slack channel should be sent now!
 
+## How to use the FreshDesk API:
+
+Once contact us is completed, a ticket is automatically sent to the freshdesk website.
+All the Informations to access the freshdesk account are provide in slack.
+
+## How to use the DropBox API:
+When a user become a customer, the file attachement given in the contact us form is transfer in dropbox and can be seen on :
+https://www.dropbox.com/home
+
+To do that, you have to be identified in:
+https://www.dropbox.com/developers/apps/info/dupssio1sb9bcxz
+after that tap on : App console, Rocket_Elevator_h22 and Generate a new API_Key
+
+## How to use the SndGrid API:
+Each new user by filling out the contact us form, automatically receives an email from the website in their email.
+
 
 ## Here is a explanatory video of our project :
 
