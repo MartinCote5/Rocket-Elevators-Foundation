@@ -1,5 +1,5 @@
 # Rocket_Elevators_Information_System
-Week 7 - Life is a Web Service - Requirements Manual
+Week 7 - Life is a Web Service 
 
 ## Project made by:
 
@@ -93,7 +93,7 @@ Each new user by filling out the contact us form, automatically receives an emai
 
 ## Here is a explanatory video of our project :
 
-
+https://www.youtube.com/watch?v=HL3Yxvcg7C0 
 
 ## Here is the URL of our website :
 https://codeboxxmartincdomain2022.xyz
