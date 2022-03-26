@@ -65,7 +65,7 @@ To test the slack API enter the following command in the terminal :
 
 Now change an elevator status to get a message in the chanel elevator_operations on slack :
 
-- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice. You can take a number between 1 and 8000.
+- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice. You can take a number between 1 and 391.
 
 - `e.status` Is to look at the current status of the elevator.
 
