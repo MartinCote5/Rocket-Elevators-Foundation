@@ -20,6 +20,7 @@ class Quote < ApplicationRecord
                         unique_external_id: "#{id}",
                         status: 2,            
                         priority: 1,
+                        type: "Feature Request",
                         description: "The contact #{full_name_of_the_contact} from company #{company_name} can be reached at email #{email}. A quote as been created and is containing #{elevator_amount} elevators. The building has #{number_of_floors} floors and #{number_of_basements} basements. This would require contribution from Rocket Elevators.",
                         subject: "#{full_name_of_the_contact} from #{company_name}"}.to_json
 
