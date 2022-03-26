@@ -25,7 +25,7 @@ namespace :mysql do
   end
 
   def user_gen
-    for i in 0..200
+    for i in 0..50
         email = rand(100) < 75 ? Faker::Internet.unique.free_email : Faker::Internet.unique.email
         role = rand(100) < 95 ? "user" : "employee"
 
@@ -41,7 +41,7 @@ namespace :mysql do
 
   def quote_gen
     Quote.destroy_all
-    for i in 0..rand(800..1200)
+    for i in 0..rand(50..100)
         date = Faker::Date.backward(days:1095)
         nbr_floors = rand(2..100)
         case rand(1..4)
@@ -59,7 +59,7 @@ namespace :mysql do
   end
 
   def lead_gen
-    for i in 0..rand(500..900)
+    for i in 0..rand(50..100)
       date = Faker::Date.backward(days:1095)    
       Lead.create!(
         full_name_of_the_contact: Faker::Name.unique.name,
@@ -127,7 +127,7 @@ namespace :mysql do
   def building_gen
     c = Customer.count
     serial = 0
-    for i in 0..rand(700..1000)
+    for i in 0..rand(50..100)
       ad = address_gen
       building = Building.create!(
         customer_id: rand(1..c),
@@ -142,7 +142,7 @@ namespace :mysql do
         updated_at: ad.updated_at
       )
       #p "Generating a building"
-      for y in 0..rand(0..5)
+      for y in 0..rand(0..3)
         building_details_gen(building)
       end
       serial = battery_gen building, serial
@@ -196,7 +196,7 @@ namespace :mysql do
       updated_at: date
     )
     #p "Generating a column"
-    for i in 0..rand(1..3)
+    for i in 0..rand(1..2)
       serial = elevator_gen column, serial
     end
     return serial

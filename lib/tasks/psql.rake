@@ -64,9 +64,9 @@ namespace :psql do
       city = customer.address.city
       for building in buildings
         battery = building.battery
-        columns = battery.column
+        columns = battery.columns
         for column in columns
-          count += column.elevator.count
+          count += column.elevators.count
         end
       end
       conn.exec("INSERT INTO dimcustomers(creation_date, company_name, full_name_of_the_company_main_contact, email_of_the_company_main_contact, elevator_amount, customer_city)VALUES ('#{customer.created_at}', '#{customer.company_name.gsub(/\'/, '\'\'')}', '#{customer.full_name_of_the_company_contact.gsub(/\'/, '\'\'')}', '#{customer.email_of_the_company_contact}', #{count}, '#{city.gsub(/\'/, '\'\'')}')")
