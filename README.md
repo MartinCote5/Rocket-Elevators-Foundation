@@ -56,15 +56,23 @@ In the building tab, in the first column we already set the "technical_contact_p
 
 - `e.save!` Is to save your change in the database, the SMS should be sent now!
 
-## How to use Slack:
 
-when the status of an elevator changes, a message is sent to the slack “elevator_operations” channel to leave a written record:
- 
- - `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice, in this case we want the first one!
+## How to use the Slack API:
 
-- `e.status = "active" or "inactive" ` Is to change the status of the elevator for the message condition 
+To test the slack API enter the following command in the terminal : 
 
-- `e.save!` Is to save your change in the database, the message should be sent!
+- `rails c`
+
+Now change an elevator status to get a message in the chanel elevator_operations on slack :
+
+- `e = Elevator.find(1)` Is to set the variable "e" to the elevator of your choice. You can take a number between 1 and 8000.
+
+- `e.status` Is to look at the current status of the elevator.
+
+- `e.status = "intervention", "active", "inactive" ` Those are the the possible status of each elevator. You can choose any of those to change the  current status.
+
+- `e.save!` Is to save your change in the database, the message in the right slack channel should be sent now!
+
 
 ## Here is a explanatory video of our project :
 
