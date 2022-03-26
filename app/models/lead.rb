@@ -22,6 +22,7 @@ class Lead < ApplicationRecord
                         status: 2,
                         unique_external_id: "#{id}",
                         priority: 1,
+                        type: "Question",
                         description: "The contact #{full_name_of_the_contact} from company #{company_name} can be reached at email #{e_mail} and at phone number #{phone}. #{department_in_charge_of_the_elevators} has a project named #{project_name} which would require contribution from Rocket Elevators. \n #{project_description}",
                         subject: "#{full_name_of_the_contact} from #{company_name}",
                         attachments: [File.new(attachment_file_name, 'rb')]}
