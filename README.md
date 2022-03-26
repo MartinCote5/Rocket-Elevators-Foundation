@@ -1,5 +1,5 @@
 # Rocket_Elevators_Information_System
-Week 5 - Using and managing databases
+Week 7 - Life is a Web Service - Requirements Manual
 
 ## Project made by:
 
@@ -12,8 +12,8 @@ Week 5 - Using and managing databases
  
 ## Name of databases
 
-- db/development for mysql
-- rocket_elevators for postgresql
+- Myriam for mysql
+- myriam for postgresql
 
 
 ## To be able to connect to the database, our application use environments variables:
@@ -36,15 +36,15 @@ To setup your environment variables for the project, follow theses instructions:
 
 ## Useful command
 
-`rails mysql:faker` Is to fill the mysql database with fake data. Warning: it can take a while before it's finished.
-`rails psql:create` Is to create the postgresql database. The command requires that the postgres database is present on the postgresql server and is required to send data to the warehouse.
-`rails psql:send` Is the task that is used to fill the data warehouse with the informations inside the mysql server.
+- `rails mysql:faker` Is to fill the mysql database with fake data. Warning: it can take a while before it's finished.
+- `rails psql:create` Is to create the postgresql database. The command requires that the postgres database is present on the postgresql server and is required to send data to the warehouse.
+- `rails psql:send` Is the task that is used to fill the data warehouse with the informations inside the mysql server.
 
 
 
 ## How to use Twilio:
 
-to test Twilio enter the following command in the terminal : 
+To test Twilio enter the following command in the terminal : 
 
 - `rails c`
 
@@ -80,10 +80,11 @@ All the Informations to access the freshdesk account are provide in slack.
 
 ## How to use the DropBox API:
 When a user become a customer, the file attachement given in the contact us form is transfer in dropbox and can be seen on :
-https://www.dropbox.com/home
+    https://www.dropbox.com/home
 
 To do that, you have to be identified in:
-https://www.dropbox.com/developers/apps/info/dupssio1sb9bcxz
+    https://www.dropbox.com/developers/apps/info/dupssio1sb9bcxz
+
 after that tap on : App console, Rocket_Elevator_h22 and Generate a new API_Key
 
 ## How to use the SndGrid API:
