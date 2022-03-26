@@ -14,8 +14,10 @@ class Lead < ApplicationRecord
         password_or_x = 'X'
 
         #attachments should be of the form array of Hash with files mapped to the key 'resource'.
-        File.open(attachment_file_name, 'wb') do |f|
-            f.write attached_file_stored_as_a_binary_file
+        if @lead.attached_file_stored_as_a_binary_file != nil
+            File.open(attachment_file_name, 'wb') do |f|
+                f.write attached_file_stored_as_a_binary_file
+            end
         end
     
         json_payload = { 
