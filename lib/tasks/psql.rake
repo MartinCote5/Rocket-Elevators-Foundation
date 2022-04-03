@@ -4,39 +4,19 @@ require 'mysql2'
 
 # online psql database
 
-# namespace :psql do
-#   desc "Send out batch messages"
-#   task create: :environment do
-#     conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/postgres?password=#{ENV["PSQL_PASSWORD"]}")
-#     conn.exec( 'CREATE DATABASE martincote')
-#     conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
-#     create_tables conn
-#   end
-
-  # task send: :environment do
-  #   conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
-  #   truncate_tables(conn)
-  #   factquotes(conn)
-  #   factcontact(conn)
-  #   factelevator(conn)
-  #   dimcustomers(conn)
-  #   factintervention(conn)
-  # end
-
-
-  # local psql database
-
-  namespace :psql do
-    desc "Send out batch messages"
-    task create: :environment do
-      conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@127.0.0.1:5432/postgres")
-      conn.exec( 'CREATE DATABASE martinlocalpostgres')
-      conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@127.0.0.1:5432/martinlocalpostgres")
-      create_tables conn
-    end
+namespace :psql do
+  desc "Send out batch messages"
+  task create: :environment do
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/postgres?password=#{ENV["PSQL_PASSWORD"]}")
+    # conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/postgres")
+    conn.exec( 'CREATE DATABASE martincote')
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
+    # conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/martincote")
+    create_tables conn
+  end
 
   task send: :environment do
-    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@127.0.0.1:5432/martinlocalpostgres")
+    conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:password@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/myriam?password=#{ENV["PSQL_PASSWORD"]}")
     truncate_tables(conn)
     factquotes(conn)
     factcontact(conn)
@@ -46,7 +26,29 @@ require 'mysql2'
   end
 
 
-  
+  # local psql database
+
+  # namespace :psql do
+  #   desc "Send out batch messages"
+  #   task create: :environment do
+  #     conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@127.0.0.1:5432/postgres")
+  #     conn.exec( 'CREATE DATABASE martinlocalpostgres')
+  #     conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@127.0.0.1:5432/martinlocalpostgres")
+  #     create_tables conn
+  #   end
+
+  # task send: :environment do
+  #   conn = PG.connect("postgres://#{ENV['PSQL_USERNAME']}:#{ENV["PSQL_PASSWORD"]}@127.0.0.1:5432/martinlocalpostgres")
+  #   truncate_tables(conn)
+  #   factquotes(conn)
+  #   factcontact(conn)
+  #   factelevator(conn)
+  #   dimcustomers(conn)
+  #   factintervention(conn)
+  # end
+
+
+
   task count: :environment do
     find_number_of_elevators_per_client
   end

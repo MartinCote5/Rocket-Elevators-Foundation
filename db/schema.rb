@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
-  create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
     t.string "type_of_address"
     t.string "status"
     t.string "entity"
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["customer_id"], name: "fk_rails_d5f9efddd3"
   end
 
-  create_table "batteries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "batteries", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "building_id"
     t.string "battery_type"
     t.string "status"
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["building_id"], name: "fk_rails_fc40470545"
   end
 
-  create_table "building_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "building_details", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "building_id"
     t.string "information_Key"
     t.string "value"
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
-  create_table "buildings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "buildings", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
     t.string "full_name_of_the_building_administrator"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["customer_id"], name: "fk_rails_c29cbe7fb8"
   end
 
-  create_table "columns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "columns", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "battery_id"
     t.string "column_type"
     t.string "number_of_floors_served"
@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["battery_id"], name: "fk_rails_021eb14ac4"
   end
 
-  create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "customers", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
     t.string "company_name"
     t.bigint "address_id"
@@ -100,7 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["user_id"], name: "fk_rails_9917eeaf5d"
   end
 
-  create_table "elevators", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "elevators", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "column_id"
     t.integer "serial_number"
     t.string "model"
@@ -116,7 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["column_id"], name: "fk_rails_69442d7bc2"
   end
 
-  create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "employees", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
     t.string "first_name"
     t.string "last_name"
@@ -126,7 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.index ["user_id"], name: "fk_rails_dcfd3d4fc3"
   end
 
-  create_table "leads", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "leads", charset: "utf8mb4", force: :cascade do |t|
     t.string "full_name_of_the_contact"
     t.string "company_name"
     t.string "e_mail"
@@ -141,12 +141,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.string "attachment_file_name"
   end
 
-  create_table "long_lat_in_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "long_lat_in_addresses", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "quotes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "quotes", charset: "utf8mb4", force: :cascade do |t|
     t.string "buildingType"
     t.integer "number_of_floors"
     t.integer "number_of_basements"
@@ -165,7 +165,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.string "full_name_of_the_contact"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.boolean "admin"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
