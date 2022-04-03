@@ -3,7 +3,7 @@ class Lead < ApplicationRecord
     require 'rubygems'
     require 'rest_client'
     require 'json'
-    after_create :LeadTickets
+    # after_create :LeadTickets
     def LeadTickets
         freshdesk_domain = 'rocketelevators-help'
 

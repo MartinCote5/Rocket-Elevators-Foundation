@@ -141,9 +141,10 @@ namespace :mysql do
         created_at: ad.created_at,
         updated_at: ad.updated_at
       )
+      building_details_gen_for_intervention(building)
       #p "Generating a building"
-      for y in 0..rand(0..3)
-        building_details_gen(building)
+      for y in 0..rand(0..2)
+        building_details_gen(building) 
       end
       serial = battery_gen building, serial
     end
@@ -154,6 +155,17 @@ namespace :mysql do
       building_id: building.id,
       information_Key: Faker::GreekPhilosophers.name,
       value: Faker::Emotion.adjective,
+      created_at: building.created_at,
+      updated_at: building.updated_at
+    )
+    #p "Generating building details"
+  end
+
+  def building_details_gen_for_intervention(building)
+    BuildingDetail.create!(
+      building_id: building.id,
+      information_Key: "status",
+      value: get_active,
       created_at: building.created_at,
       updated_at: building.updated_at
     )
@@ -236,8 +248,11 @@ namespace :mysql do
   end
 
   def get_active
-    if rand(100) < 85
+    x =  rand(100) 
+    if x < 85
       return "active"
+    elsif x < 93
+      return "intervention"
     else
       return "inactive"
     end

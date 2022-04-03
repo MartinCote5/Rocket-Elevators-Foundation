@@ -30,3 +30,17 @@ CREATE TABLE dimcustomers (
     elevator_amount integer NOT NULL,
     customer_city text NOT NULL
 );
+
+CREATE TABLE factintervention (
+    intervention_id serial PRIMARY KEY,
+    employee_id bigint NOT NULL,
+    building_id bigint NOT NULL,
+    battery_id bigint,
+    column_id bigint,
+    elevator_id bigint,
+    start_date_and_time_of_the_intervention timestamp NOT NULL,
+    end_date_and_time_of_the_intervention timestamp,
+    result text NOT NULL,
+    report text,
+    status_of_the_intervention text NOT NULL
+);
