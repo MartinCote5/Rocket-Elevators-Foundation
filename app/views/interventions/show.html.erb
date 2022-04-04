@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @intervention %>
+
+<div>
+  <%= link_to "Edit this intervention", edit_intervention_path(@intervention) %> |
+  <%= link_to "Back to interventions", interventions_path %>
+
+  <%= button_to "Destroy this intervention", @intervention, method: :delete %>
+</div>

@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  building_id: 
+  battery_id: 
+  column_id: 
+  elevator_id: 
+  employee_id: 
+  start_date_and_time_of_the_intervention: 2022-04-04 16:06:58
+  end_date_and_time_of_the_intervention: 2022-04-04 16:06:58
+  result: MyString
+  report: MyText
+  status: MyString
+
+two:
+  customer_id: 
+  building_id: 
+  battery_id: 
+  column_id: 
+  elevator_id: 
+  employee_id: 
+  start_date_and_time_of_the_intervention: 2022-04-04 16:06:58
+  end_date_and_time_of_the_intervention: 2022-04-04 16:06:58
+  result: MyString
+  report: MyText
+  status: MyString

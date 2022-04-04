@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interventions
   # resources :leads
   post 'leads', to: 'leads#create'
   resources :quotes
