@@ -11,8 +11,11 @@ class InterventionsController < ApplicationController
   end
 
   # GET /interventions/new
+  
   def new
-    @intervention = Intervention.new
+    if current_user.is_employee? 
+      @intervention = Intervention.new
+    end
   end
 
   # GET /interventions/1/edit

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/quote', to: 'home#quote'
   get '/geo', to: 'home#geo'
   mount Blazer::Engine, at: "blazer"
+ 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

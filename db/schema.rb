@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_04_200658) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type_of_address"
     t.string "status"
@@ -64,9 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.string "technical_contact_phone_for_the_building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "buildingId"
-    t.string "information_key"
-    t.string "value"
     t.index ["address_id"], name: "fk_rails_6dc7a885ab"
     t.index ["customer_id"], name: "fk_rails_c29cbe7fb8"
   end
@@ -124,6 +121,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_210720) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "fk_rails_dcfd3d4fc3"
+  end
+
+  create_table "interventions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "building_id"
+    t.bigint "battery_id"
+    t.bigint "column_id"
+    t.bigint "elevator_id"
+    t.bigint "employee_id"
+    t.timestamp "start_date_and_time_of_the_intervention"
+    t.timestamp "end_date_and_time_of_the_intervention"
+    t.string "result"
+    t.text "report"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leads", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
