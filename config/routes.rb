@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/interventions', to: 'interventions#new'
 
   get 'interventions/update_buildings' => 'interventions#update_buildings'
+  get 'interventions/update_batteries' => 'interventions#update_batteries'
+
  
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

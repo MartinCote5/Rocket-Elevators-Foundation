@@ -24,49 +24,74 @@
     <%= form.select :building_id, options_for_select(@buildings.collect { |buildings| [buildings.id] }, 0), {}, { id: 'buildings_select' } %>
   </div>
 
-
-  <script>
-    $('#customers_select').change(function() {
-        $.ajax({
-            url: 'interventions/update_buildings',
-            type: 'GET',
-            data: {
-                customer_id: $("#customers_select option:selected").val()
-  
-            },
-            success: function(buildings) {
-                // console.log(data)
-                // Clear all options from course select
-                $("select#buildings_select option").remove();
-                //put in a empty default line
-                var row = "<option value=\"" + "" + "\">" + "select your building" + "</option>";
-                $(row).appendTo("select#buildings_select");
-
-                // Fill course select
-                $.each(buildings, function(i, building) {
-                    console.log(building)
-                    row = "<option value=\"" + building.id + "\">" + building.id + "</option>";
-                    $(row).appendTo("select#buildings_select");
-                });
-            }
-        
-    })
-})
-
-
-
-
-</script>
-
-
-
-
-
-
   <div>
     <%= form.label :battery_id, style: "display: block" %>
-    <%= form.text_field :battery_id %>
+    <%= form.select :battery_id, options_for_select(@batteries.collect { |batteries| [batteries.id] }, 0), {}, { id: 'batteries_select' } %>
   </div>
+
+
+  <script>
+  $('#customers_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_buildings',
+      type: 'GET',
+      data: {
+        customer_id: $("#customers_select option:selected").val()
+      },
+      success: function(buildings) {
+        // console.log(data)
+        // Clear all options from course select
+        $("select#buildings_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\">" + "select your building" + "</option>";
+        $(row).appendTo("select#buildings_select");
+
+        // Fill course select
+        $.each(buildings, function(i, building) {
+            console.log(building)
+            row = "<option value=\"" + building.id + "\">" + building.id + "</option>";
+            $(row).appendTo("select#buildings_select");
+        });
+      }
+    })
+  })
+
+  $('#buildings_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_batteries',
+      type: 'GET',
+      data: {
+        building_id: $("#buildings_select option:selected").val()
+      },
+      success: function(batteries) {
+        console.log(batteries)
+        // Clear all options from course select
+        $("select#batteries_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\">" + "select your battery" + "</option>";
+        $(row).appendTo("select#batteries_select");
+
+        // Fill course select
+        $.each(batteries, function(i, battery) {
+            row = "<option value=\"" + battery.id + "\">" + battery.id + "</option>";
+            $(row).appendTo("select#batteries_select");
+        });
+      }
+    })
+  })
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+ 
 
   <div>
     <%= form.label :column_id, style: "display: block" %>

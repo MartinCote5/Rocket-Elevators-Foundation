@@ -15,21 +15,27 @@ class InterventionsController < ApplicationController
   def new
     if current_user.is_employee? 
       @intervention = Intervention.new
-      p "poil"
       @customers = Customer.all
       @buildings = Building.all
-      p @customers.find(6).id
+      @batteries = Battery.all
       # @building = Building.where("customer_id = ?", customer.first.id)
     end
   end
 
   def update_buildings
-    p "hhhh"
     @buildings = Building.where("customer_id = ?", params[:customer_id])
     p @buildings
     respond_to do |format|
       format.json { render :json => @buildings}
       p @buildings
+    end
+  end
+
+  def update_batteries
+    @batteries = Battery.where("building_id = ?", params[:building_id])
+    p @batteries
+    respond_to do |format|
+      format.json { render :json => @batteries}
     end
   end
 
