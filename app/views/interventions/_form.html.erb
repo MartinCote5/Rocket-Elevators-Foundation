@@ -11,15 +11,57 @@
     </div>
   <% end %>
 
+
+
+ 
   <div>
-    <%= form.label :customer_id, style: "display: block" %>
-    <%= form.text_field :customer_id %>
+    <%= form.label :customer_id, class: "form-label" %>
+    <%= form.select :customer_id, options_for_select(@customers.collect { |customers| [customers.id] }, 1), {}, { id: 'customers_select' } %>
   </div>
 
   <div>
-    <%= form.label :building_id, style: "display: block" %>
-    <%= form.text_field :building_id %>
+    <%= form.label :building_id, class: "form-label" %>
+    <%= form.select :building_id, options_for_select(@buildings.collect { |buildings| [buildings.id] }, 0), {}, { id: 'buildings_select' } %>
   </div>
+
+
+  <script>
+    $('#customers_select').change(function() {
+        $.ajax({
+            url: 'interventions/update_buildings',
+            type: 'GET',
+            data: {
+                customer_id: $("#customers_select option:selected").val()
+  
+            },
+            success: function(cities) {
+                // console.log(data)
+                // Clear all options from course select
+                $("select#cities_select option").remove();
+                //put in a empty default line
+                var row = "<option value=\"" + "" + "\">" + "select your city" + "</option>";
+                $(row).appendTo("select#cities_select");
+
+                // Fill course select
+                $.each(cities, function(i, city) {
+                    console.log(city)
+                    row = "<option value=\"" + city.id + "\">" + city.name + "</option>";
+                    $(row).appendTo("select#cities_select");
+                });
+            }
+        
+    })
+})
+
+
+
+
+</script>
+
+
+
+
+
 
   <div>
     <%= form.label :battery_id, style: "display: block" %>
@@ -32,7 +74,7 @@
   </div>
 
   <div>
-    <%= form.label :elevator_id, style: "display: block" %>
+    <%= form.label :TEST, style: "display: block" %>
     <%= form.text_field :elevator_id %>
   </div>
 

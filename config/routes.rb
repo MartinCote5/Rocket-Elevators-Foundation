@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :interventions
+  
   # resources :leads
   post 'leads', to: 'leads#create'
   resources :quotes
@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/quote', to: 'home#quote'
   get '/geo', to: 'home#geo'
   mount Blazer::Engine, at: "blazer"
+  # get '/intervention', to: 'home#interventions'
+  get '/interventions', to: 'interventions#new'
+
+  get 'interventions/update_buildings' => 'interventions#update_buildings'
  
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

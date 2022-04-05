@@ -2,9 +2,9 @@ class InterventionsController < ApplicationController
   before_action :set_intervention, only: %i[ show edit update destroy ]
 
   # GET /interventions or /interventions.json
-  def index
-    @interventions = Intervention.all
-  end
+  # def index
+    # @interventions = Intervention.all
+  # end
 
   # GET /interventions/1 or /interventions/1.json
   def show
@@ -15,6 +15,21 @@ class InterventionsController < ApplicationController
   def new
     if current_user.is_employee? 
       @intervention = Intervention.new
+      p "poil"
+      @customers = Customer.all
+      @buildings = Building.all
+      p @customers.find(6).id
+      # @building = Building.where("customer_id = ?", customer.first.id)
+    end
+  end
+
+  def update_buildings
+    p "hhhh"
+    @buildings = Building.where("customer_id = ?", params[:customer_id])
+    p @buildings
+    respond_to do |format|
+      format.json { render :json => @buildings}
+      p @buildings
     end
   end
 
