@@ -29,6 +29,11 @@
     <%= form.select :battery_id, options_for_select(@batteries.collect { |batteries| [batteries.id] }, 0), {}, { id: 'batteries_select' } %>
   </div>
 
+  <div>
+    <%= form.label :column_id, style: "display: block" %>
+     <%= form.select :column_id, options_for_select(@columns.collect { |columns| [columns.id] }, 0), {}, { id: 'columns_select' } %>
+  </div>
+
 
   <script>
   $('#customers_select').change(function() {
@@ -80,6 +85,29 @@
     })
   })
 
+   $('#batteries_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_columns',
+      type: 'GET',
+      data: {
+        battery_id: $("#batteries_select option:selected").val()
+      },
+      success: function(columns) {
+        // Clear all options from course select
+        $("select#columns_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\">" + "select your column" + "</option>";
+        $(row).appendTo("select#columns_select");
+
+        // Fill course select
+        $.each(columns, function(i, column) {
+            row = "<option value=\"" + column.id + "\">" + column.id + "</option>";
+            $(row).appendTo("select#columns_select");
+        });
+      }
+    })
+  })
+
 
 
 
@@ -93,10 +121,7 @@
 
  
 
-  <div>
-    <%= form.label :column_id, style: "display: block" %>
-    <%= form.text_field :column_id %>
-  </div>
+  
 
   <div>
     <%= form.label :TEST, style: "display: block" %>

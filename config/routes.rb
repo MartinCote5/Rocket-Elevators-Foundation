@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'interventions/update_buildings' => 'interventions#update_buildings'
   get 'interventions/update_batteries' => 'interventions#update_batteries'
+  get 'interventions/update_columns' => 'interventions#update_columns'
 
  
   

@@ -18,6 +18,7 @@ class InterventionsController < ApplicationController
       @customers = Customer.all
       @buildings = Building.all
       @batteries = Battery.all
+      @columns = Column.all
       # @building = Building.where("customer_id = ?", customer.first.id)
     end
   end
@@ -36,6 +37,13 @@ class InterventionsController < ApplicationController
     p @batteries
     respond_to do |format|
       format.json { render :json => @batteries}
+    end
+  end
+
+  def update_columns
+    @columns = Column.where("battery_id = ?", params[:battery_id])
+    respond_to do |format|
+      format.json { render :json => @columns}
     end
   end
 
