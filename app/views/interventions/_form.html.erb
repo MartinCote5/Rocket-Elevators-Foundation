@@ -34,19 +34,19 @@
                 customer_id: $("#customers_select option:selected").val()
   
             },
-            success: function(cities) {
+            success: function(buildings) {
                 // console.log(data)
                 // Clear all options from course select
-                $("select#cities_select option").remove();
+                $("select#buildings_select option").remove();
                 //put in a empty default line
-                var row = "<option value=\"" + "" + "\">" + "select your city" + "</option>";
-                $(row).appendTo("select#cities_select");
+                var row = "<option value=\"" + "" + "\">" + "select your building" + "</option>";
+                $(row).appendTo("select#buildings_select");
 
                 // Fill course select
-                $.each(cities, function(i, city) {
-                    console.log(city)
-                    row = "<option value=\"" + city.id + "\">" + city.name + "</option>";
-                    $(row).appendTo("select#cities_select");
+                $.each(buildings, function(i, building) {
+                    console.log(building)
+                    row = "<option value=\"" + building.id + "\">" + building.id + "</option>";
+                    $(row).appendTo("select#buildings_select");
                 });
             }
         
