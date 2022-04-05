@@ -34,6 +34,11 @@
      <%= form.select :column_id, options_for_select(@columns.collect { |columns| [columns.id] }, 0), {}, { id: 'columns_select' } %>
   </div>
 
+  <div>
+    <%= form.label :elevator_id, style: "display: block" %>
+    <%= form.select :elevator_id, options_for_select(@elevators.collect { |elevators| [elevators.id] }, 0), {}, { id: 'elevators_select' } %>
+  </div>
+
 
   <script>
   $('#customers_select').change(function() {
@@ -108,6 +113,30 @@
     })
   })
 
+   $('#columns_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_elevators',
+      type: 'GET',
+      data: {
+        column_id: $("#columns_select option:selected").val()
+      },
+      success: function(elevators) {
+        // Clear all options from course select
+        $("select#elevators_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\">" + "select your elevator" + "</option>";
+        $(row).appendTo("select#elevators_select");
+
+        // Fill course select
+        $.each(elevators, function(i, elevator) {
+            row = "<option value=\"" + elevator.id + "\">" + elevator.id + "</option>";
+            $(row).appendTo("select#elevators_select");
+        });
+      }
+    })
+  })
+
+
 
 
 
@@ -123,10 +152,7 @@
 
   
 
-  <div>
-    <%= form.label :TEST, style: "display: block" %>
-    <%= form.text_field :elevator_id %>
-  </div>
+  
 
   <div>
     <%= form.label :employee_id, style: "display: block" %>
