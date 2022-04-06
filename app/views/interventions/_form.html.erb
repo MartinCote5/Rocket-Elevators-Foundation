@@ -17,7 +17,8 @@
   <div>
     <%= form.label :customer_id, class: "form-label" %>
 
-    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {:prompt => "--select your customer--"}, {id: 'customers_select'} %>
+    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %>
+    <%# form.select :country, Address.countries_for_select, :include_blank => true, :disabled => ['disabled-value1', 'disabled-value-2'] %>
   </div>
 
   <div>
@@ -70,7 +71,7 @@
         $("select#columns_select option").remove();
         $("select#elevators_select option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "--select your building--" + "</option>";
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your building--" + "</option>";
         var unusableRow = ("<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>");
         $(row).appendTo("select#buildings_select");
         $(unusableRow).appendTo("select#batteries_select");
@@ -107,7 +108,7 @@
         $("select#columns_select option").remove();
         $("select#elevators_select option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "--select your battery--" + "</option>";
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your battery--" + "</option>";
         var unusableRow = ("<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>");
         $(row).appendTo("select#batteries_select");
         $(unusableRow).appendTo("select#columns_select");
@@ -139,14 +140,14 @@
         $("select#columns_select option").remove();
         $("select#elevators_select option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "--select your column--" + "</option>";
-        var unusableRow = ("<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>");
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your column--" + "</option>";
+        var unusableRow = "<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>";
         
-        $(row).appendTo("select#columns_select");
+        $(row).appendTo("select#columns_select").disabled = true;
         $(unusableRow).appendTo("select#elevators_select");
 
         $('#elevators_select').prop('disabled',true);
-        
+      
 
         // Fill course select
         $.each(columns, function(i, column) {
@@ -169,7 +170,7 @@
         // Clear all options from course select
         $("select#elevators_select option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "--select your elevator--" + "</option>";
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your elevator--" + "</option>";
         $(row).appendTo("select#elevators_select");
 
         // Fill course select

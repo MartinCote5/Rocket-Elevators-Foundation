@@ -21,7 +21,8 @@ class InterventionsController < ApplicationController
       @columns = Column.all
       @elevators = Elevator.all
       @employees = Employee.all
-      # @building = Building.where("customer_id = ?", customer.first.id)
+      # @building = Building.where("customer_id = 4", customer.first.id)
+      
     end
   end
 
@@ -56,13 +57,13 @@ class InterventionsController < ApplicationController
     end
   end
 
-  def update_employees
-    @employees = Employee.where("id = ?", params[:employee_id])
-    respond_to do |format|
-      format.json { render :json => @employees}
-      p @employees
-    end
-  end
+  # def update_employees
+  #   @employees = Employee.where("id = ?", params[:employee_id])
+  #   respond_to do |format|
+  #     format.json { render :json => @employees}
+  #     p @employees
+  #   end
+  # end
 
   # GET /interventions/1/edit
   def edit
