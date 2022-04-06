@@ -2,9 +2,9 @@ class InterventionsController < ApplicationController
   before_action :set_intervention, only: %i[ show edit update destroy ]
 
   # GET /interventions or /interventions.json
-  # def index
-    # @interventions = Intervention.all
-  # end
+  def index
+    @interventions = Intervention.all
+  end
 
   # GET /interventions/1 or /interventions/1.json
   def show
@@ -20,6 +20,7 @@ class InterventionsController < ApplicationController
       @batteries = Battery.all
       @columns = Column.all
       @elevators = Elevator.all
+      @employees = Employee.all
       # @building = Building.where("customer_id = ?", customer.first.id)
     end
   end
@@ -55,6 +56,14 @@ class InterventionsController < ApplicationController
     end
   end
 
+  def update_employees
+    @employees = Employee.where("id = ?", params[:employee_id])
+    respond_to do |format|
+      format.json { render :json => @employees}
+      p @employees
+    end
+  end
+
   # GET /interventions/1/edit
   def edit
   end
@@ -63,9 +72,12 @@ class InterventionsController < ApplicationController
   def create
     @intervention = Intervention.new(intervention_params)
 
+    @intervention.result = "Incomplete"
+    @intervention.status = "Pending"
+
     respond_to do |format|
       if @intervention.save
-        format.html { redirect_to intervention_url(@intervention), notice: "Intervention was successfully created." }
+        format.html { redirect_to interventions_url(@intervention), notice: "Intervention was successfully created." }
         format.json { render :show, status: :created, location: @intervention }
       else
         format.html { render :new, status: :unprocessable_entity }

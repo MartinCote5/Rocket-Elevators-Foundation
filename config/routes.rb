@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   mount Blazer::Engine, at: "blazer"
   # get '/intervention', to: 'home#interventions'
   get '/interventions', to: 'interventions#new'
+  post '/interventions', to: 'interventions#create'
 
   get 'interventions/update_buildings' => 'interventions#update_buildings'
   get 'interventions/update_batteries' => 'interventions#update_batteries'
   get 'interventions/update_columns' => 'interventions#update_columns'
   get 'interventions/update_elevators' => 'interventions#update_elevators'
+  get 'interventions/update_employees' => 'interventions#update_employees'
 
  
   

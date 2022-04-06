@@ -39,6 +39,19 @@
     <%= form.select :elevator_id, options_for_select(@elevators.collect { |elevators| [elevators.id] }, 0), {}, { id: 'elevators_select' } %>
   </div>
 
+  <div>
+    <%= form.label :employee_id, style: "display: block" %>
+     <%# <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.first_name + " " + employees.last_name] }, 0), {}, { id: 'employees_select' } %>
+     <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.id] }) %>
+  </div>
+  
+  <div>
+    <%= form.label :report, style: "display: block" %>
+    <%= form.text_area :report %>
+  </div>
+
+ 
+
 
   <script>
   $('#customers_select').change(function() {
@@ -136,9 +149,19 @@
     })
   })
 
+// $('#employees_select').change(function() {
+//     $.ajax({
+//       url: 'interventions/update_employees',
+//       type: 'GET',
+//       data: {
+//         employee_id: $("#employees_select option:selected").val()
+//       },
 
-
-
+//       success: function(buildings) {
+        
+//       }
+//     })
+//   })
 
 
   </script>
@@ -154,35 +177,15 @@
 
   
 
-  <div>
-    <%= form.label :employee_id, style: "display: block" %>
-    <%= form.text_field :employee_id %>
-  </div>
+ 
 
-  <div>
-    <%= form.label :start_date_and_time_of_the_intervention, style: "display: block" %>
-    <%= form.datetime_field :start_date_and_time_of_the_intervention %>
-  </div>
 
-  <div>
-    <%= form.label :end_date_and_time_of_the_intervention, style: "display: block" %>
-    <%= form.datetime_field :end_date_and_time_of_the_intervention %>
-  </div>
 
-  <div>
-    <%= form.label :result, style: "display: block" %>
-    <%= form.text_field :result %>
-  </div>
+  
 
-  <div>
-    <%= form.label :report, style: "display: block" %>
-    <%= form.text_area :report %>
-  </div>
+ 
 
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
+  
 
   <div>
     <%= form.submit %>
