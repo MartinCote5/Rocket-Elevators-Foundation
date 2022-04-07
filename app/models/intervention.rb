@@ -3,9 +3,9 @@ class Intervention < ApplicationRecord
     require 'rubygems'
     require 'rest_client'
     require 'json'
-    after_create :QuoteTickets
+    after_create :InterventionTickets
 
-    def QuoteTickets
+    def InterventionTickets
      
         # Your freshdesk domain
         freshdesk_domain = 'rocketelevators-supportdesk'
@@ -15,43 +15,64 @@ class Intervention < ApplicationRecord
 
         # If you have given api_key, then it should be x. If you have given user name, it should be password
         password_or_x = 'X'
-        
-        
+
+
+
+
+
+        p elevator_id
+        elevator_id = self.elevator_id == nil ? "n/a" : self.elevator_id
+        p "-----------------"
+        p elevator_id
+        p "-----------------"
+        p elevator_id
+
+        # unless self.elevator_id == 40
+        #     p "-----------------"
+        #     p "-----------------"
+        #     elevator_id = "n/a"
+        #     p "-----------------"
+        # end
+
         # if column_id == nil 
         #     column_id = "n/a"
         # end
+        # p elevator_id
         # puts "--------------------------------------------------"
         # puts "--------------------------------------------------"
-        puts elevator_id    
+        #puts elevator_id
         # puts "--------------------------------------------------"
         # puts "--------------------------------------------------"
-        if elevator_id == nil
-            puts "--------------------------------------------------"
-            puts "--------------------------------------------------"
-            puts elevator_id    
-            puts "--------------------------------------------------"
-            puts "--------------------------------------------------"
-            elevator_id = "n/a"
-            puts "--------------------rrrrrrrrrrrrrrrrrrrr------------------------------"
-        end
-
+        # if elevator_id == nil
+        #     puts "--------------------------------------------------"
+        #     puts "--------------------------------------------------"
+        #     puts elevator_id    
+        #     puts "--------------------------------------------------"
+        #     puts "--------------------------------------------------"
+        #     b = "n/a"
+        #     # elevator_id.to_s
+            # elevator_id = 40
+        #     puts "--------------------rrrrrrrrrrrrrrrrrrrr------------------------------"
+        # end
+        #puts b
+        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhfffffffhhhhhhhhhhhhhhhhhhhhhhhhh"
+        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
         puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
         puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
         puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+        puts elevator_id
+        puts elevator_id
+        puts elevator_id
+        puts elevator_id
+        puts elevator_id
         puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
         puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        puts elevator_id 
-        puts elevator_id   
-        puts elevator_id   
-        puts elevator_id   
-        puts elevator_id    
-        
-        puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        if employee_id != nil 
+        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+        if employee_id != nil
+            puts "...."
+            puts elevator_id
         json_payload = {
                         unique_external_id: "#{id}",
                         status: 2,            
@@ -66,12 +87,11 @@ class Intervention < ApplicationRecord
                         Report : <br>
                         #{report}<br> <br> <br> 
                         the requester** " , 
-                        subject: "#{employee_id} from #{employee_id}"}.to_json
-        end
-
-        if employee_id == nil 
+                        subject: "Intervention ticket for #{Customer.find(customer_id).company_name}"}.to_json
+        else
             json_payload = {
                             unique_external_id: "#{id}",
+                            title: "blalba", 
                             status: 2,            
                             priority: 1,
                             type: "Incident",
