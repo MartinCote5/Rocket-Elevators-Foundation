@@ -1,0 +1,228 @@
+<%= form_with(model: intervention) do |form| %>
+  <% if intervention.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
+
+      <ul>
+        <% intervention.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+ 
+  <div>
+    <%= form.label :customer_id, class: "form-label" %>
+
+    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %>
+    <%# form.select :country, Address.countries_for_select, :include_blank => true, :disabled => ['disabled-value1', 'disabled-value-2'] %>
+    <%# <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {"#{customers.company_name}" + " ID #" +  "#{customers.id}"} {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %> 
+  </div>
+
+  <div>
+    <%= form.label :building_id, class: "form-label" %>
+    <%= form.select :building_id, options_for_select(@buildings.collect { |buildings| [buildings.id] }), {:prompt => "--fill other fields first--"}, {id: 'buildings_select', disabled: true} %>
+  </div>
+
+  <div>
+    <%= form.label :battery_id, style: "display: block" %>
+    <%= form.select :battery_id, options_for_select(@batteries.collect { |batteries| [batteries.id] }), {:prompt => "--fill other fields first--"},  {id: 'batteries_select', disabled: true} %>
+  </div>
+
+  <div>
+    <%= form.label :column_id, style: "display: block" %>
+     <%= form.select :column_id, options_for_select(@columns.collect { |columns| [columns.id] }), {:prompt => "--fill other fields first--"}, { id: 'columns_select', disabled: true } %>
+  </div>
+
+  <div>
+    <%= form.label :elevator_id, style: "display: block" %>
+    <%= form.select :elevator_id, options_for_select(@elevators.collect { |elevators| [elevators.id] }), {:prompt => "--fill other fields first--"}, { id: 'elevators_select', disabled: true } %>
+  </div>
+
+  <div>
+    <%= form.label :employee_id, style: "display: block" %>
+     <%# <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.first_name + " " + employees.last_name] }, 0), {}, { id: 'employees_select' } %>
+     <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.id]}), {:prompt => "--select your employee--"} %>
+  </div>
+  
+  <div>
+    <%= form.label :report, style: "display: block" %>
+    <%= form.text_area :report %>
+  </div>
+
+ 
+
+
+  <script>
+  $('#customers_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_buildings',
+      type: 'GET',
+      data: {
+        customer_id: $("#customers_select option:selected").val()
+      },
+      success: function(buildings) {
+        // console.log(data)
+        // Clear all options from course select
+        $("select#buildings_select option").remove();
+        $("select#batteries_select option").remove();
+        $("select#columns_select option").remove();
+        $("select#elevators_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your building--" + "</option>";
+        var unusableRow = ("<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>");
+        $(row).appendTo("select#buildings_select");
+        $(unusableRow).appendTo("select#batteries_select");
+        $(unusableRow).appendTo("select#columns_select");
+        $(unusableRow).appendTo("select#elevators_select");
+
+        $('#batteries_select').prop('disabled',true);
+        $('#columns_select').prop('disabled',true);
+        $('#elevators_select').prop('disabled',true);
+        
+
+        // Fill course select
+        $.each(buildings, function(i, building) {
+            console.log(building)
+            row = "<option value=\"" + building.id + "\">" + building.id + "</option>";
+            $(row).appendTo("select#buildings_select");
+        });
+      $('#buildings_select').prop('disabled',false);
+      }
+    })
+  })
+
+  $('#buildings_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_batteries',
+      type: 'GET',
+      data: {
+        building_id: $("#buildings_select option:selected").val()
+      },
+      success: function(batteries) {
+        console.log(batteries)
+        // Clear all options from course select
+        $("select#batteries_select option").remove();
+        $("select#columns_select option").remove();
+        $("select#elevators_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your battery--" + "</option>";
+        var unusableRow = ("<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>");
+        $(row).appendTo("select#batteries_select");
+        $(unusableRow).appendTo("select#columns_select");
+        $(unusableRow).appendTo("select#elevators_select");
+        
+        $('#columns_select').prop('disabled',true);
+        $('#elevators_select').prop('disabled',true);
+
+
+        // Fill course select
+        $.each(batteries, function(i, battery) {
+            row = "<option value=\"" + battery.id + "\">" + battery.id + "</option>";
+            $(row).appendTo("select#batteries_select");
+        });
+      $('#batteries_select').prop('disabled',false);  
+      }
+    })
+  })
+
+   $('#batteries_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_columns',
+      type: 'GET',
+      data: {
+        battery_id: $("#batteries_select option:selected").val()
+      },
+      success: function(columns) {
+        // Clear all options from course select
+        $("select#columns_select option").remove();
+        $("select#elevators_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your column--" + "</option>";
+        var unusableRow = "<option value=\"" + "" + "\">" + "--fill other fields first--" + "</option>";
+        
+        $(row).appendTo("select#columns_select").disabled = true;
+        $(unusableRow).appendTo("select#elevators_select");
+
+        $('#elevators_select').prop('disabled',true);
+      
+
+        // Fill course select
+        $.each(columns, function(i, column) {
+            row = "<option value=\"" + column.id + "\">" + column.id + "</option>";
+            $(row).appendTo("select#columns_select");
+        });
+      $('#columns_select').prop('disabled',false);  
+      }
+    })
+  })
+
+   $('#columns_select').change(function() {
+    $.ajax({
+      url: 'interventions/update_elevators',
+      type: 'GET',
+      data: {
+        column_id: $("#columns_select option:selected").val()
+      },
+      success: function(elevators) {
+        // Clear all options from course select
+        $("select#elevators_select option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\" disabled selected hidden>" + "--select your elevator--" + "</option>";
+        $(row).appendTo("select#elevators_select");
+
+        // Fill course select
+        $.each(elevators, function(i, elevator) {
+            row = "<option value=\"" + elevator.id + "\">" + elevator.id + "</option>";
+            $(row).appendTo("select#elevators_select");
+        });
+      $('#elevators_select').prop('disabled',false);  
+      }
+    })
+  })
+
+// $('#employees_select').change(function() {
+//     $.ajax({
+//       url: 'interventions/update_employees',
+//       type: 'GET',
+//       data: {
+//         employee_id: $("#employees_select option:selected").val()
+//       },
+
+//       success: function(buildings) {
+        
+//       }
+//     })
+//   })
+
+
+  </script>
+
+
+
+
+
+
+ 
+
+  
+
+  
+
+ 
+
+
+
+  
+
+ 
+
+  
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
