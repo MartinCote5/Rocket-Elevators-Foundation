@@ -19,6 +19,7 @@
 
     <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %>
     <%# form.select :country, Address.countries_for_select, :include_blank => true, :disabled => ['disabled-value1', 'disabled-value-2'] %>
+    <%# <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {"#{customers.company_name}" + " ID #" +  "#{customers.id}"} {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %> 
   </div>
 
   <div>

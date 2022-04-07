@@ -3,10 +3,11 @@ class Intervention < ApplicationRecord
     require 'rubygems'
     require 'rest_client'
     require 'json'
-    after_create :QuoteTickets
+    # after_create :QuoteTickets
 
     def QuoteTickets
-     
+        ## == PaperTrail ==
+        # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
         # Your freshdesk domain
         freshdesk_domain = 'rocketelevators-supportdesk'
     
@@ -16,7 +17,8 @@ class Intervention < ApplicationRecord
         # If you have given api_key, then it should be x. If you have given user name, it should be password
         password_or_x = 'X'
         
-        
+        # x = current_user.email
+        # puts x
         # if column_id == nil 
         #     column_id = "n/a"
         # end

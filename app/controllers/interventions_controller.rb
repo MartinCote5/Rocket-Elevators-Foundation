@@ -73,8 +73,10 @@ class InterventionsController < ApplicationController
   def create
     @intervention = Intervention.new(intervention_params)
 
+    # @intervention.customer_id = Customer.customers.id
     @intervention.result = "Incomplete"
     @intervention.status = "Pending"
+    # @intervention.customer_id = @intervention.customer_id
 
     respond_to do |format|
       if @intervention.save
