@@ -20,12 +20,12 @@
   </div>
 
   <div>
-    <%= form.label :building_id, class: "form-label" %>
+    <%= form.label :building_id, "Building *", class: "form-label" %>
     <%= form.select :building_id, options_for_select(@buildings.collect { |buildings| [buildings.id] }), {:prompt => "--fill other fields first--"}, {id: 'buildings_select', disabled: true} %>
   </div>
 
   <div>
-    <%= form.label :battery_id, style: "display: block" %>
+    <%= form.label :battery_id, "Battery *", style: "display: block" %>
     <%= form.select :battery_id, options_for_select(@batteries.collect { |batteries| [batteries.id] }), {:prompt => "--fill other fields first--"},  {id: 'batteries_select', disabled: true} %>
   </div>
 
