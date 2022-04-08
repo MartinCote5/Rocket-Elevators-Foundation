@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
   belongs_to :user
   has_one :address
   has_many :building
+  has_many :interventions
   after_save :check_lead
 
   def address_map
