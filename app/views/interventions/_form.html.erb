@@ -13,13 +13,10 @@
 
 
 
- 
-  <div>
-    <%= form.label :customer_id, class: "form-label" %>
-
-    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %>
-    <%# form.select :country, Address.countries_for_select, :include_blank => true, :disabled => ['disabled-value1', 'disabled-value-2'] %>
-    <%# <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| [customers.id] }), {"#{customers.company_name}" + " ID #" +  "#{customers.id}"} {:include_blank => '--select a customer--'['disabled-value1']},   {id: 'customers_select'} %> 
+<div class="col-md-4"> 
+   <div>
+    <%= form.label :customer_id, "Customer *", class: "form-label" %>
+    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| ["#{customers.company_name}   ID #  #{customers.id} ",customers.id] }), {selected: "", disabled: "", prompt: "--select a customer--"},   {id: 'customers_select'} %>
   </div>
 
   <div>
@@ -45,7 +42,7 @@
   <div>
     <%= form.label :employee_id, style: "display: block" %>
      <%# <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.first_name + " " + employees.last_name] }, 0), {}, { id: 'employees_select' } %>
-     <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.id]}), {:prompt => "--select your employee--"} %>
+     <%= form.select :employee_id, options_for_select(@employees.collect { |employees| ["#{employees.first_name}"+ "#{employees.last_name}" + " ID #" + "#{employees.id} ", employees.id]}), {:prompt => "--select your employee--"} %>
   </div>
   
   <div>
@@ -53,12 +50,18 @@
     <%= form.text_area :report %>
   </div>
 
+   <div>
+    <%= form.submit %>
+  </div>
+</div>  
+
  
 
 
   <script>
   $('#customers_select').change(function() {
     $.ajax({
+      
       url: 'interventions/update_buildings',
       type: 'GET',
       data: {
@@ -198,9 +201,12 @@
 //     })
 //   })
 
-
+   
+  
   </script>
 
+ 
+
 
 
 
@@ -222,7 +228,5 @@
 
   
 
-  <div>
-    <%= form.submit %>
-  </div>
+  
 <% end %>

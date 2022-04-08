@@ -14,6 +14,7 @@ class InterventionsController < ApplicationController
   
   def new
     if current_user.is_employee? 
+      
       @intervention = Intervention.new
       @customers = Customer.all
       @buildings = Building.all
@@ -73,11 +74,16 @@ class InterventionsController < ApplicationController
   def create
     @intervention = Intervention.new(intervention_params)
 
-    # @intervention.customer_id = Customer.customers.id
     @intervention.result = "Incomplete"
     @intervention.status = "Pending"
-    # @intervention.customer_id = @intervention.customer_id
+    # @intervention.author = current_user.id
+    x= current_user.id
+    p x
+    p x 
+    p x 
+    p x
 
+ 
     respond_to do |format|
       if @intervention.save
         format.html { redirect_to interventions_url(@intervention), notice: "Intervention was successfully created." }
