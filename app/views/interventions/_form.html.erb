@@ -16,17 +16,17 @@
 <div class="col-md-4"> 
    <div>
     <%= form.label :customer_id, "Customer *", class: "form-label" %>
-    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| ["#{customers.company_name}   ID #  #{customers.id} ",customers.id] }), {selected: "", disabled: "", prompt: "--select a customer--"},   {id: 'customers_select'} %>
+    <%= form.select :customer_id,  options_for_select(@customers.collect { |customers| ["#{customers.company_name}   ID #  #{customers.id} ",customers.id] }), {selected: "", disabled: "", prompt: "--select a customer--"},   {id: 'customers_select', :required => true} %>
   </div>
 
   <div>
     <%= form.label :building_id, "Building *", class: "form-label" %>
-    <%= form.select :building_id, options_for_select(@buildings.collect { |buildings| [buildings.id] }), {:prompt => "--fill other fields first--"}, {id: 'buildings_select', disabled: true} %>
+    <%= form.select :building_id, options_for_select(@buildings.collect { |buildings| [buildings.id] }), {:prompt => "--fill other fields first--"}, {id: 'buildings_select', :required => true, disabled: true} %>
   </div>
 
   <div>
     <%= form.label :battery_id, "Battery *", style: "display: block" %>
-    <%= form.select :battery_id, options_for_select(@batteries.collect { |batteries| [batteries.id] }), {:prompt => "--fill other fields first--"},  {id: 'batteries_select', disabled: true} %>
+    <%= form.select :battery_id, options_for_select(@batteries.collect { |batteries| [batteries.id] }), {:prompt => "--fill other fields first--"},  {id: 'batteries_select', :required => true, disabled: true,} %>
   </div>
 
   <div>
