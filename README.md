@@ -114,7 +114,7 @@ Each new user by filling out the contact us form, automatically receives an emai
 
 
 
--a collection for postman to test my get and put request : 
+-a collection for postman to test my 3 get and put request : 
 
 -https://www.postman.com/collections/5d3f43a20db118ff8e78
 
@@ -123,7 +123,7 @@ Each new user by filling out the contact us form, automatically receives an emai
 
 ## Here is a explanatory video of our project :
 
-https://www.youtube.com/watch?v=HL3Yxvcg7C0 
+-https://youtu.be/Mw0LUl3LTfQ
 
 ## Here is the URL of our website :
-https://codeboxxmartincdomain2022.xyz
+-https://codeboxxmartincdomain2022.xyz
