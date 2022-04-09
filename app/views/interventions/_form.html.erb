@@ -41,7 +41,6 @@
 
   <div>
     <%= form.label :employee_id, style: "display: block" %>
-     <%# <%= form.select :employee_id, options_for_select(@employees.collect { |employees| [employees.first_name + " " + employees.last_name] }, 0), {}, { id: 'employees_select' } %>
      <%= form.select :employee_id, options_for_select(@employees.collect { |employees| ["#{employees.first_name}"+ "#{employees.last_name}" + " ID #" + "#{employees.id} ", employees.id]}), {:prompt => "--select your employee--"} %>
   </div>
   
@@ -56,8 +55,6 @@
 </div>  
 
  
-
-
   <script>
   $('#customers_select').change(function() {
     $.ajax({
@@ -68,7 +65,6 @@
         customer_id: $("#customers_select option:selected").val()
       },
       success: function(buildings) {
-        // console.log(data)
         // Clear all options from course select
         $("select#buildings_select option").remove();
         $("select#batteries_select option").remove();
@@ -86,7 +82,6 @@
         $('#columns_select').prop('disabled',true);
         $('#elevators_select').prop('disabled',true);
         
-
         // Fill course select
         $.each(buildings, function(i, building) {
             console.log(building)
@@ -121,7 +116,6 @@
         $('#columns_select').prop('disabled',true);
         $('#elevators_select').prop('disabled',true);
 
-
         // Fill course select
         $.each(batteries, function(i, battery) {
             row = "<option value=\"" + battery.id + "\">" + battery.id + "</option>";
@@ -152,7 +146,6 @@
 
         $('#elevators_select').prop('disabled',true);
       
-
         // Fill course select
         $.each(columns, function(i, column) {
             row = "<option value=\"" + column.id + "\">" + column.id + "</option>";
@@ -186,47 +179,6 @@
       }
     })
   })
-
-// $('#employees_select').change(function() {
-//     $.ajax({
-//       url: 'interventions/update_employees',
-//       type: 'GET',
-//       data: {
-//         employee_id: $("#employees_select option:selected").val()
-//       },
-
-//       success: function(buildings) {
-        
-//       }
-//     })
-//   })
-
-   
   
-  </script>
-
- 
-
-
-
-
-
-
- 
-
-  
-
-  
-
- 
-
-
-
-  
-
- 
-
-  
-
-  
+  </script>  
 <% end %>

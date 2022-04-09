@@ -7,12 +7,11 @@ class Intervention < ApplicationRecord
     belongs_to :employee, optional: true
     belongs_to :author, class_name: 'Employee'
     
-
     #Create a ticket with attachments.
     require 'rubygems'
     require 'rest_client'
     require 'json'
-    # after_create :interventionTickets
+    after_create :interventionTickets
 
     def interventionTickets
         ## == PaperTrail ==
@@ -26,49 +25,8 @@ class Intervention < ApplicationRecord
         # If you have given api_key, then it should be x. If you have given user name, it should be password
         password_or_x = 'X'
         
-        # x = current_user.email
-        # puts x
-        # if column_id == nil 
-        #     column_id = "n/a"
-        # end
-        # puts "--------------------------------------------------"
-        # puts "--------------------------------------------------"
-        # puts elevator_id    
-        # puts "--------------------------------------------------"
-        # puts "--------------------------------------------------"
-        # if elevator_id == nil
-        #     puts "--------------------------------------------------"
-        #     puts "--------------------------------------------------"
-        #     puts elevator_id    
-        #     puts "--------------------------------------------------"
-        #     puts "--------------------------------------------------"
-        #     elevator_id = "n/a"
-        #     puts "--------------------rrrrrrrrrrrrrrrrrrrr------------------------------"
-        # end
-
-        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-        # puts elevator_id 
-        # puts elevator_id   
-        # puts elevator_id   
-        # puts elevator_id   
-        # puts elevator_id    
-        # if user_signed_in?
-            # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            # puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            # x = current_user.user_id
-            # p x
-        # end
         column_id = self.column_id == nil ? "n/a" : self.column_id
         elevator_id = self.elevator_id == nil ? "n/a" : self.elevator_id
-
-
 
         if employee_id != nil 
         json_payload = {
@@ -84,8 +42,8 @@ class Intervention < ApplicationRecord
                         The employee #{Employee.find(employee_id).first_name} #{Employee.find(employee_id).last_name} is assigned to the task. <br>
                         Report : <br>
                         #{report}<br> <br> <br> 
-                        the requester** " , 
-                        subject: "Intervention ticket for #{Customer.find(customer_id).company_name}"}.to_json
+                        #{author.first_name} #{author.last_name}", 
+                        subject: "Intervention ticket from #{author.first_name} #{author.last_name}"}.to_json
         end
 
         if employee_id == nil 
@@ -102,8 +60,8 @@ class Intervention < ApplicationRecord
                             There is no employee assigned to this intervention! <br>
                             Report : <br>
                             #{report}<br> <br> <br> 
-                            the requester** " , 
-                            subject: "Intervention ticket for #{Customer.find(customer_id).company_name}"}.to_json
+                            #{author.first_name} #{author.last_name}" , 
+                            subject: "Intervention ticket from #{author.first_name} #{author.last_name}"}.to_json
         end
                         
         freshdesk_api_path = 'api/v2/tickets'
