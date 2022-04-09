@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_04_200658) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_08_214601) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type_of_address"
     t.string "status"
@@ -64,6 +64,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_200658) do
     t.string "technical_contact_phone_for_the_building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "buildingId"
+    t.string "information_key"
+    t.string "value"
     t.index ["address_id"], name: "fk_rails_6dc7a885ab"
     t.index ["customer_id"], name: "fk_rails_c29cbe7fb8"
   end
@@ -137,6 +140,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_200658) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_interventions_on_author_id"
+    t.index ["battery_id"], name: "fk_rails_268aede6d6"
+    t.index ["building_id"], name: "fk_rails_911b4ef939"
+    t.index ["column_id"], name: "fk_rails_d05fb241b3"
+    t.index ["customer_id"], name: "fk_rails_4242c0f569"
+    t.index ["elevator_id"], name: "fk_rails_11b5a4bd36"
+    t.index ["employee_id"], name: "fk_rails_2e0d31b7ad"
   end
 
   create_table "leads", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -202,4 +213,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_200658) do
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
+  add_foreign_key "interventions", "batteries"
+  add_foreign_key "interventions", "buildings"
+  add_foreign_key "interventions", "columns"
+  add_foreign_key "interventions", "customers"
+  add_foreign_key "interventions", "elevators"
+  add_foreign_key "interventions", "employees"
+  add_foreign_key "interventions", "employees", column: "author_id"
 end

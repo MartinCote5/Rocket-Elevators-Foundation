@@ -1,6 +1,7 @@
 class Elevator < ApplicationRecord
     require 'slack-notifier'
     belongs_to :column
+    has_many :interventions
     before_update :elevatorNotification
     after_update :elevator_status
     def elevatorNotification

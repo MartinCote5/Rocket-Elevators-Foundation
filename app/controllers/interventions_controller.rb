@@ -10,19 +10,17 @@ class InterventionsController < ApplicationController
   def show
   end
 
-  # GET /interventions/new
-  
+  # GET /interventions/new 
   def new
     if current_user.is_employee? 
+      
       @intervention = Intervention.new
       @customers = Customer.all
       @buildings = Building.all
       @batteries = Battery.all
       @columns = Column.all
       @elevators = Elevator.all
-      @employees = Employee.all
-      # @building = Building.where("customer_id = 4", customer.first.id)
-      
+      @employees = Employee.all   
     end
   end
 
@@ -57,32 +55,36 @@ class InterventionsController < ApplicationController
     end
   end
 
-  # def update_employees
-  #   @employees = Employee.where("id = ?", params[:employee_id])
-  #   respond_to do |format|
-  #     format.json { render :json => @employees}
-  #     p @employees
-  #   end
-  # end
-
-  # GET /interventions/1/edit
-  def edit
-  end
-
   # POST /interventions or /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
 
-    # @intervention.customer_id = Customer.customers.id
     @intervention.result = "Incomplete"
     @intervention.status = "Pending"
-    # @intervention.customer_id = @intervention.customer_id
+    @intervention.author = current_user.employee
+    # if current_user.id == Employee.all.user_id
+    #   @intervention.author 
+    # end
+    # @intervention.author = Employee.find(curent_user.id).
+   
+    # x= current_user.employee.id
+    # p x
+    # p x 
+    # p x 
+    # p x
 
+ 
     respond_to do |format|
       if @intervention.save
-        format.html { redirect_to interventions_url(@intervention), notice: "Intervention was successfully created." }
+        format.html { redirect_to root_path, notice: "Intervention was successfully created." }
         format.json { render :show, status: :created, location: @intervention }
       else
+        @customers = Customer.all
+        @buildings = Building.all
+        @batteries = Battery.all
+        @columns = Column.all
+        @elevators = Elevator.all
+        @employees = Employee.all   
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @intervention.errors, status: :unprocessable_entity }
       end
