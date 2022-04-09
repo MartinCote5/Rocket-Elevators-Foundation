@@ -1,7 +1,12 @@
 # Rocket_Elevators_Information_System
-Week 7 - Life is a Web Service 
+Week 9 - Consolidation
 
-## Project made by:
+
+
+## This week project made by:
+- Martin Cote
+
+## Whole Project made by:
 
 - Jean-Sébastien Gotty
 - Gabriel Stankunas
@@ -12,15 +17,15 @@ Week 7 - Life is a Web Service
  
 ## Name of databases
 
-- Myriam for mysql
-- myriam for postgresql
+- MartinCote for mysql
+- martin for postgresql
 
 
 ## To be able to connect to the database, our application use environments variables:
  
 - `DATABASE_USERNAME` The username of mysql database
 - `DATABASE_PASSWORD` The password of mysql database
-- `PSQL_USERNAME` Usename to postgres database
+- `PSQL_USERNAME` Username to postgres database
 - `PSQL_PASSWORD` Password to postgres database
 - `DROPBOX_KEY` Dropbox api key
 - `AWS_REGION` Region of the aws account
@@ -32,7 +37,13 @@ Week 7 - Life is a Web Service
 - `SLACK_WEBHOOK` Key for the slack api
 - `FRESHDESK_API_KEY` Key for the freshdesk api
  
-To setup your environment variables for the project, follow theses instructions: [how to setup environment variables](https://www.twilio.com/blog/2018/01/how-to-set-environment-variables.html).
+## Freshdesk connection website information 
+- first go to the https://rocketelevators-supportdesk.freshdesk.com/support/home
+- then click on Login on the top right corner
+- email address : martin.cote2@hotmail.com
+- password : avion012
+
+
 
 ## Useful command
 
@@ -75,8 +86,10 @@ Now change an elevator status to get a message in the chanel elevator_operations
 
 ## How to use the FreshDesk API:
 
-Once contact us is completed, a ticket is automatically sent to the freshdesk website.
+Once either the contact us, quote or intervention section is completed, a ticket is automatically sent to the freshdesk website.
 All the Informations to access the freshdesk account are provide in slack.
+
+
 
 ## How to use the DropBox API:
 When a user become a customer, the file attachement given in the contact us form is transfer in dropbox and can be seen on :
@@ -87,8 +100,25 @@ To do that, you have to be identified in:
 
 after that tap on : App console, Rocket_Elevator_h22 and Generate a new API_Key
 
-## How to use the SndGrid API:
+## How to use the SendGrid API:
 Each new user by filling out the contact us form, automatically receives an email from the website in their email.
+
+
+
+
+## OTHER REPOSITORY:
+
+-My repository with my work on the REST API containing the code for the 3 acces point :
+
+-https://github.com/MartinCote5/RocketElevatorRestApi/tree/main
+
+
+
+-a collection for postman to test my get and put request : 
+
+-https://www.postman.com/collections/5d3f43a20db118ff8e78
+
+
 
 
 ## Here is a explanatory video of our project :
